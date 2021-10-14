@@ -741,18 +741,11 @@ Processed: _______________________________
 </table>
 
 
-
-
-
-
-
-
-
 ";
 
 
-
-$formId = $_POST['formId']; 
+// Database Code Below
+ 
 $toDivision = $_POST['toDivision'];
 $fromDivision = $_POST['fromDivision'];
 $quantity = $_POST['quantity'];
@@ -764,6 +757,21 @@ $serialNum1 = $_POST['serialNum1'];
 $manf1 = $_POST['manf1'];
 $psid1 = $_POST['psid1'];
 $acqDate1 = $_POST['acqDate1'];
+
+$description2 = $_POST['description2'];
+$assetTag2 = $_POST['assetTag2'];
+$serialNum2 = $_POST['serialNum2'];
+$manf2 = $_POST['manf2'];
+$psid2 = $_POST['psid2'];
+$acqDate2 = $_POST['acqDate2'];
+
+
+$descriptionz = array("$description1", "$description2");
+$assetTagz = array("$assetTag1", "$assetTag2");
+$serialNumz = array("$serialNum1", "$serialNum2");
+$manfz = array("$manf1", "$manf2");
+$psidz = array("$psid1", "$psid2");
+$acqDatez = array("$acqDate1", "$acqDate2");
 
 
 //Database Connection
@@ -779,16 +787,27 @@ if($conn-> connect_error){
     die('Connection Failed : '.$conn -> connect_error);
 }else{
     
-    $stmt = $conn->prepare ("INSERT into `Asset Disposition Form` (formId, toDivision, fromDivision, quantity, indicateType, tDate, description1, assetTag1, serialNum1, manf1, psid1, acqDate1) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
     
-   $stmt->bind_param('sssisssissis', $formId, $toDivision, $fromDivision, $quantity, $indicateType, $tDate, $description1, $assetTag1, $serialNum1, $manf1, $psid1, $acqDate1);
-
-
-    $stmt-> execute();
-    echo "Form Submitted Successfully.";
+    
+ for ($x = 0; $x <= 50; $x++){   
+   if($assetTagz[$x] > 0){
+    $stmt = $conn->prepare ("INSERT into `Asset Disposition Form` (toDivision, fromDivision, quantity, indicateType, tDate, description, assetTag, serialNum, manf, psid, acqDate) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+    
+   
+    
+   $stmt->bind_param('ssisssissis', $toDivision, $fromDivision, $quantity, $indicateType, $tDate, $descriptionz[$x], $assetTagz[$x], $serialNumz[$x], $manfz[$x], $psidz[$x], $acqDatez[$x]);
+   
+    
+   $stmt-> execute();
+     
+   }
+   
+ }
+    
+   echo "Form Submitted Successfully.";
     
     $stmt-> close();
-    $conn->close();
+    $conn->close(); 
     
 }
     
