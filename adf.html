@@ -2,20 +2,31 @@
 <html>
 <head><meta charset="utf-8">
 	<title>Asset Disposition Form</title>
-	
-	<link href="adf.css" rel="stylesheet" />
-	
-	
-	<!--Bootstrap Components Below --><!-- Latest compiled and minified CSS -->
+	<link href="adf.css" rel="stylesheet" /><!--Bootstrap Components Below --><!-- Latest compiled and minified CSS -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" /><!-- jQuery library --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- Latest compiled JavaScript --><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /><script>
 	
 	
-	<script>
+
   
 // Resets Lesson Plan
 function myFunction() {
-    document.getElementById("adf").reset();
+    
+    
+     let confirmAction = confirm("Are you sure you want to reset this form? This action can not be undone.");
+        if (confirmAction) {
+        
+          document.getElementById("adf").reset();
+          var formIdUnique = Date.now();
+var submissionId = formIdUnique; 
+document.getElementById("submissionId").value = submissionId;
+         
+          
+        } else {
+          alert("Form reset canceled.");
+        }
+   
+    
 }
 
 
@@ -67,18 +78,189 @@ document.getElementById("submissionId").value = submissionId;
 }); 
 
 
+//This button toggle hidden displays
+
+function showAllRows() {
+  var y = document.getElementById('displayButton');
+  var x = document.getElementById("showRows");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.innerHTML = "Hide Additional Rows";
+  } else {
+    x.style.display = "none";
+    y.innerHTML = "Show Additional Rows";
+  }
+}
+
+
+//This button changes the asset desciption and manufacturer
+//SurfaceGo Button
+function changeDescriptionSG(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+
+    
+    
+}
+
+
+
+//ThinkPad Button
+function changeDescriptionTP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value= "<option value="ThinkPad 11e">ThinkPad 11e</option>SurfaceGo Tablet">SurfaceGo Tablet</option><option value="HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value="ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+//HP Button
+function changeDescriptionHP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value= "<option value="HP Laptop">HP Laptop</option><option value= "ThinkPad 11e">ThinkPad 11e</option>SurfaceGo Tablet">SurfaceGo Tablet</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="HP">HP</option><option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+
+//HP Button
+function resetDescription(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+
+    
+}
+    
+}
 
 </script>
-
-
-    
-    
-    
-
 </head>
 <body>
 <div class="container-fluid">
-<div class="header"></div>
+<div class="header" ></div>
 
 <div class="topnav" id="myTopnav"><a class="active" href="https://www.velgoodies.com">Home</a> <a href="https://outlook.office.com/" target="_blank">Email</a> <a href="http://www.scsk12.org/accessforall/deviceresources.php?PID=1758" target="_blank">Device Support</a> <a class="icon" href="javascript:void(0);" onclick="myFunction()"> </a></div>
 
@@ -87,54 +269,55 @@ document.getElementById("submissionId").value = submissionId;
 </div>
 
 <div class="instructions">
-<h5>Instructions: This form is to be used when either adding a new asset, transferring an asset to another location, disposing of an asset, repair and/or reporting stolen asset. Authorization must be obtained from either the school principal, department and/or division head prior to being transferred, disposed or removed from the school&#39;s/division&#39;s inventory. Please list furniture and equipment on separate forms.</h5>
+<h5>Instructions: <strong><span style="background-color:#FFFF00;">This form is to be used when either adding a new asset, transferring an asset to another location, disposing of an asset, repair and/or reporting stolen asset.</span></strong> Authorization must be obtained from either the school principal, department and/or division head prior to being transferred, disposed or removed from the school&#39;s/division&#39;s inventory.</h5>
 </div>
 
-<form action="samplemail(2).php" id="adf" method="POST" name="adf">
+<form action="samplemail(2).php" id="adf" method="POST" name="adf" onsubmit="checkForm()" required="">
 <div style="height:400x;overflow:auto;">
 <div class="row">
 <div class="col-md-4 col-xs-4">
-<h5>From: <select id="fromDivision" name="fromDivision"><option value=""></option><option value="Virtual Education and Logistics Center   LOC: 2385">Virtual Education and Logistics Center LOC: 2385</option> </select></h5>
+<h5>From: <select id="fromDivision" name="fromDivision" required=""><option value=""></option><option value="Virtual Education and Logistics Center   LOC: 2385">Virtual Education and Logistics Center LOC: 2385</option> </select></h5>
 </div>
 
 <div class="col-md-3 col-xs-3">
-<h5>To: <select id="toDivision" name="toDivision"><option value=""></option><option value="Airways Achievement  LOC: 2310">Airways Achievement LOC: 2310</option> </select></h5>
+<h5>To: <select id="toDivision" name="toDivision" required=""><option value=""></option><option value="Airways Achievement  LOC: 2310">Airways Achievement LOC: 2310</option> </select></h5>
 </div>
 
 <div class="col-md-2 col-xs-2">
-<h5>Indicate Type: <select id="indicateType" name="indicateType"><option value=""></option><option value="Add">Add</option><option value="Transfer">Transfer</option><option value="Stolen">Stolen</option><option value="Disposal">Disposal</option> </select></h5>
+<h5>Indicate Type: <select id="indicateType" name="indicateType" required=""><option value=""></option><option value="Add">Add</option><option value="Transfer">Transfer</option><option value="Stolen">Stolen</option><option value="Disposal">Disposal</option> 
+<option value="Repair">Repair</option>
+</select></h5>
 </div>
 
-<div class="col-md-3 col-xs-3">Date: <input id="tDate" name="tDate" type="text" /></div>
+<div class="col-md-3 col-xs-3">Date: <input id="tDate" name="tDate" placeholder="mm/dd/yyyy" required="" type="text" /></div>
 </div>
 <!--Quantity Row Below-->
 
 <div class="row">
-<div class="col-md-3 col-xs-3">Device Quantity: <input id="quantity" name="quantity" type="text" /></div>
+<div class="col-md-3 col-xs-3">Device Quantity: <input id="quantity" name="quantity" required="" type="text" /></div>
 
-<div class="col-md-3 col-xs-3" >Submission ID: <input id="submissionId" name="submissionId" type="text" >  </div>
+<div class="col-md-3 col-xs-3">Submission ID: <input id="submissionId" name="submissionId" readonly="readonly" type="text" /></div>
 
-
-<div class="col-md-3 col-xs-3" >Email: <input id="email" name="email" type="text" >  </div>
+<div class="col-md-3 col-xs-3">Email: <input id="email" name="email" required="" type="text" /></div>
+</div>
 </div>
 
-
-</div>
-
-
-
-
+<p><strong><span style="color:#000000;"><span style="background-color:#FFFF00;">(Note: ** = Required Field)</span></span></strong><br />
+<input onclick="myFunction()" type="button" value="Reset Form" /> 
+<input name="submit" type="submit" value="Submit"/>
+<br>
+<br>
+<input onclick="changeDescriptionSG()" type="button" value="Change All to SurfaceGo Tablets" /> 
+<input onclick="changeDescriptionTP()" type="button" value="Change All to ThinkPad 11e" /> 
+<input onclick="changeDescriptionHP()" type="button" value="Change All to HP Laptop" /> 
+<input onclick="resetDescription()" type="button" value="Reset Descriptions" /> 
 <br />
-<input onclick="myFunction()" type="button" value="Reset Form" /> <input name="submit" type="submit" value="Submit" /> <!--Stuff goes in between these two buttons --><br />
 
-
-
+</p>
 
 <!--table style elements below-->
-
-
-
-<style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
 .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
@@ -152,13 +335,11 @@ document.getElementById("submissionId").value = submissionId;
 }
 
 .tg th{ border:1px solid white;}
-
-
-
 </style>
+
 <div class="tg-wrap">
-<table class="tg" style="undefined;table-layout: fixed; width: 1289px">
-	<colgroup>
+<table class="tg" style="undefined;table-layout: fixed; width: 100%">
+	<!--<colgroup>
 		<col style="width:100px" />
 		<col style="width: 210px" />
 		<col style="width: 238px" />
@@ -166,41 +347,32 @@ document.getElementById("submissionId").value = submissionId;
 		<col style="width: 154px" />
 		<col style="width: 218px" />
 		<col style="width: 152px" />
-	</colgroup>
+	</colgroup>-->
 	<thead>
 		<tr>
 			<th class="tg-rz9m">Number</th>
-			<th class="tg-rz9m">Asset Description</th>
-			<th class="tg-rz9m">SCS Asset Tag Number</th>
-			<th class="tg-rz9m">Serial Number</th>
-			<th class="tg-rz9m">Manufacturer</th>
-			<th class="tg-rz9m">PSID</th>
-			<th class="tg-rz9m">Acquisition Date</th>
+			<th class="tg-rz9m">Asset Description**</th>
+			<th class="tg-rz9m">SCS Asset Tag Number**</th>
+			<th class="tg-rz9m">Serial Number**</th>
+			<th class="tg-rz9m">Manufacturer**</th>
+			<th class="tg-rz9m">PSID (Office Use Only)</th>
+			<th class="tg-rz9m">Acquisition Date (Office Use Only)</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-		    
 			<td class="number" style="text-align: center; font-weight:bold">1</td>
 			<td class="tg-0lax-ad">
-			<center>
-			<select id="description1" name="description1">
-			    
-			<option value=""></option>
-			<option value="SurfaceGo Tablet">SurfaceGo Tablet</option>
-			<option value="Think Pad 11e">Think Pad 11e</option>
-			<option value="HP Laptop">HP Laptop</option>
-			</select></center>
-			</td>
-
-			<td class="tg-0lax">
-			<center><input id="assetTag1" name="assetTag1" type="text" /></center>
+			<center><select id="description1" name="description1" required=""><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
 			</td>
 			<td class="tg-0lax">
-			<center><input id="serialNum1" name="serialNum1" type="text" /></center>
+			<center><input id="assetTag1" name="assetTag1"  type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf1" name="manf1"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><input id="serialNum1" name="serialNum1" type="text" required/></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf1" name="manf1" required=""><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid1" name="psid1" type="text" /></center>
@@ -210,9 +382,6 @@ document.getElementById("submissionId").value = submissionId;
 			</td>
 		</tr>
 		<tr>
-		    
-		    
-		    
 			<td class="number" style="text-align: center; font-weight:bold">2</td>
 			<td class="tg-0lax-ad">
 			<center><select id="description2" name="description2"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
@@ -224,7 +393,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum2" name="serialNum2" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf2" name="manf2"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf2" name="manf2"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid2" name="psid2" type="text" /></center>
@@ -234,11 +403,6 @@ document.getElementById("submissionId").value = submissionId;
 			</td>
 		</tr>
 		<tr>
-		    
-		    
-		    
-		    
-		    
 			<td class="number" style="text-align: center; font-weight:bold">3</td>
 			<td class="tg-0lax-ad">
 			<center><select id="description3" name="description3"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
@@ -250,7 +414,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum3" name="serialNum3" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf3" name="manf3"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf3" name="manf3"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid3" name="psid3" type="text" /></center>
@@ -271,7 +435,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum4" name="serialNum4" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf4" name="manf4"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf4" name="manf4"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid4" name="psid4" type="text" /></center>
@@ -292,7 +456,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum5" name="serialNum5" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf5" name="manf5"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf5" name="manf5"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid5" name="psid5" type="text" /></center>
@@ -313,7 +477,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum6" name="serialNum6" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf6" name="manf6"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf6" name="manf6"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid6" name="psid6" type="text" /></center>
@@ -334,7 +498,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum7" name="serialNum7" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf7" name="manf7"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf7" name="manf7"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid7" name="psid7" type="text" /></center>
@@ -355,7 +519,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum8" name="serialNum8" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf8" name="manf8"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf8" name="manf8"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid8" name="psid8" type="text" /></center>
@@ -376,7 +540,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum9" name="serialNum9" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf9" name="manf9"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf9" name="manf9"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid9" name="psid9" type="text" /></center>
@@ -397,7 +561,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum10" name="serialNum10" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf10" name="manf10"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf10" name="manf10"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid10" name="psid10" type="text" /></center>
@@ -418,7 +582,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum11" name="serialNum11" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf11" name="manf11"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf11" name="manf11"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid11" name="psid11" type="text" /></center>
@@ -439,7 +603,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum12" name="serialNum12" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf12" name="manf12"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf12" name="manf12"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid12" name="psid12" type="text" /></center>
@@ -460,7 +624,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum13" name="serialNum13" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf13" name="manf13"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf13" name="manf13"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid13" name="psid13" type="text" /></center>
@@ -481,7 +645,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum14" name="serialNum14" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf14" name="manf14"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf14" name="manf14"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid14" name="psid14" type="text" /></center>
@@ -490,9 +654,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="acqDate14" name="acqDate14" size="10px" type="text" /></center>
 			</td>
 		</tr>
-		
-		
-			<tr>
+		<tr>
 			<td class="number" style="text-align: center; font-weight:bold">15</td>
 			<td class="tg-0lax-ad">
 			<center><select id="description15" name="description15"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
@@ -504,7 +666,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum15" name="serialNum15" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf15" name="manf15"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf15" name="manf15"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid15" name="psid15" type="text" /></center>
@@ -513,7 +675,6 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="acqDate15" name="acqDate15" size="10px" type="text" /></center>
 			</td>
 		</tr>
-		
 		<tr>
 			<td class="number" style="text-align: center; font-weight:bold">16</td>
 			<td class="tg-0lax-ad">
@@ -526,7 +687,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum16" name="serialNum16" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf16" name="manf16"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf16" name="manf16"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid16" name="psid16" type="text" /></center>
@@ -547,7 +708,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum17" name="serialNum17" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf17" name="manf17"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf17" name="manf17"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid17" name="psid17" type="text" /></center>
@@ -568,7 +729,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum18" name="serialNum18" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf18" name="manf18"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf18" name="manf18"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid18" name="psid18" type="text" /></center>
@@ -589,7 +750,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum19" name="serialNum19" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf19" name="manf19"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf19" name="manf19"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid19" name="psid19" type="text" /></center>
@@ -610,7 +771,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum20" name="serialNum20" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf20" name="manf20"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf20" name="manf20"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid20" name="psid20" type="text" /></center>
@@ -631,7 +792,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum21" name="serialNum21" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf21" name="manf21"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf21" name="manf21"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid21" name="psid21" type="text" /></center>
@@ -652,7 +813,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum22" name="serialNum22" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf22" name="manf22"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf22" name="manf22"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid22" name="psid22" type="text" /></center>
@@ -673,7 +834,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum23" name="serialNum23" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf23" name="manf23"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf23" name="manf23"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid23" name="psid23" type="text" /></center>
@@ -694,7 +855,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum24" name="serialNum24" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf24" name="manf24"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf24" name="manf24"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid24" name="psid24" type="text" /></center>
@@ -715,7 +876,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum25" name="serialNum25" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf25" name="manf25"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf25" name="manf25"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid25" name="psid25" type="text" /></center>
@@ -724,6 +885,15 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="acqDate25" name="acqDate25" size="10px" type="text" /></center>
 			</td>
 		</tr>
+	</tbody>
+</table>
+<br />
+<button id="displayButton" onclick="showAllRows()" type="button">Add More Rows</button>
+
+<div id="showRows" style="display:none;">&nbsp;
+<table class="tg" style="undefined;table-layout: fixed; width: 100%">
+
+	<tbody>
 		<tr>
 			<td class="number" style="text-align: center; font-weight:bold">26</td>
 			<td class="tg-0lax-ad">
@@ -736,7 +906,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum26" name="serialNum26" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf26" name="manf26"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf26" name="manf26"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid26" name="psid26" type="text" /></center>
@@ -757,7 +927,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum27" name="serialNum27" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf27" name="manf27"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf27" name="manf27"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid27" name="psid27" type="text" /></center>
@@ -778,7 +948,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum28" name="serialNum28" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf28" name="manf28"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf28" name="manf28"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid28" name="psid28" type="text" /></center>
@@ -799,7 +969,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum29" name="serialNum29" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf29" name="manf29"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf29" name="manf29"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid29" name="psid29" type="text" /></center>
@@ -820,7 +990,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum30" name="serialNum30" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf30" name="manf30"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf30" name="manf30"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid30" name="psid30" type="text" /></center>
@@ -841,7 +1011,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum31" name="serialNum31" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf31" name="manf31"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf31" name="manf31"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid31" name="psid31" type="text" /></center>
@@ -862,7 +1032,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum32" name="serialNum32" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf32" name="manf32"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf32" name="manf32"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid32" name="psid32" type="text" /></center>
@@ -883,7 +1053,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum33" name="serialNum33" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf33" name="manf33"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf33" name="manf33"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid33" name="psid33" type="text" /></center>
@@ -904,7 +1074,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum34" name="serialNum34" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf34" name="manf34"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf34" name="manf34"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid34" name="psid34" type="text" /></center>
@@ -925,7 +1095,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum35" name="serialNum35" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf35" name="manf35"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf35" name="manf35"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid35" name="psid35" type="text" /></center>
@@ -946,7 +1116,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum36" name="serialNum36" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf36" name="manf36"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf36" name="manf36"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid36" name="psid36" type="text" /></center>
@@ -967,7 +1137,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum37" name="serialNum37" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf37" name="manf37"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf37" name="manf37"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid37" name="psid37" type="text" /></center>
@@ -988,7 +1158,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum38" name="serialNum38" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf38" name="manf38"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf38" name="manf38"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid38" name="psid38" type="text" /></center>
@@ -1009,7 +1179,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum39" name="serialNum39" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf39" name="manf39"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf39" name="manf39"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid39" name="psid39" type="text" /></center>
@@ -1030,7 +1200,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum40" name="serialNum40" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf40" name="manf40"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf40" name="manf40"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid40" name="psid40" type="text" /></center>
@@ -1051,7 +1221,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum41" name="serialNum41" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf41" name="manf41"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf41" name="manf41"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid41" name="psid41" type="text" /></center>
@@ -1072,7 +1242,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum42" name="serialNum42" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf42" name="manf42"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf42" name="manf42"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid42" name="psid42" type="text" /></center>
@@ -1093,7 +1263,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum43" name="serialNum43" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf43" name="manf43"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf43" name="manf43"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid43" name="psid43" type="text" /></center>
@@ -1114,7 +1284,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum44" name="serialNum44" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf44" name="manf44"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf44" name="manf44"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid44" name="psid44" type="text" /></center>
@@ -1135,7 +1305,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum45" name="serialNum45" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf45" name="manf45"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf45" name="manf45"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid45" name="psid45" type="text" /></center>
@@ -1156,7 +1326,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum46" name="serialNum46" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf46" name="manf46"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf46" name="manf46"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid46" name="psid46" type="text" /></center>
@@ -1177,7 +1347,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum47" name="serialNum47" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf47" name="manf47"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf47" name="manf47"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid47" name="psid47" type="text" /></center>
@@ -1198,7 +1368,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum48" name="serialNum48" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf48" name="manf48"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf48" name="manf48"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid48" name="psid48" type="text" /></center>
@@ -1219,7 +1389,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum49" name="serialNum49" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf49" name="manf49"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf49" name="manf49"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid49" name="psid49" type="text" /></center>
@@ -1240,7 +1410,7 @@ document.getElementById("submissionId").value = submissionId;
 			<center><input id="serialNum50" name="serialNum50" type="text" /></center>
 			</td>
 			<td class="tg-0lax">
-			<center><select id="manf50" name="manf50"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option> </select></center>
+			<center><select id="manf50" name="manf50"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
 			</td>
 			<td class="tg-0lax">
 			<center><input id="psid50" name="psid50" type="text" /></center>
@@ -1252,9 +1422,9 @@ document.getElementById("submissionId").value = submissionId;
 	</tbody>
 </table>
 </div>
+<!--Closing Div for hidding rows 26- 50 is above this line--></div>
 <br />
-<input onclick="myFunction()" type="button" value="Reset Form" /> <input name="submit" type="submit" value="Submit" /></div>
-</form>
+<input onclick="myFunction()" type="button" value="Reset Form" /> <input name="submit" type="submit" value="Submit" /></form>
 
 <footer>For additional support, please send an email to device_support@scsk12.org.</footer>
 </div>
