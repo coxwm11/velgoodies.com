@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+
+	<title>Device Submission ID Search</title>
+	<link href="adf.css" rel="stylesheet" />
+	
+	<!--Bootstrap Components Below --><!-- Latest compiled and minified CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+	
+<!-- Removes the ability to press enter on form -->	
+	<script>
+	  $(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});  
+	    
+	    
+	</script>
+	
+	
+
+<script>
+// Resets Lesson Plan
+function myFunction() {
+    
+    
+     let confirmAction = confirm("Are you sure you want to reset this form? This action can not be undone.");
+        if (confirmAction) {
+        
+          document.getElementById("adf").reset();
+          var formIdUnique = Date.now();
+
+         
+          
+        } else {
+          alert("Form reset canceled.");
+        }
+   
+    
+}
+
+
+  
+// Upload Button 
+function myUploadFunction() {
+    window.open("https://scsk12.sharepoint.com/:f:/s/SCSLessonPLan/El1NhAnJb1tPpTuxX1PsfHwB6X_Nhpr8kenru2GcaoDpqQ?e=naeQn8");
+}
+
+
+// This calculates the date
+
+function autoDate () {
+	var tDay = new Date();
+	var tMonth = tDay.getMonth()+1;
+	var tDate = tDay.getDate();
+	if ( tMonth < 10) tMonth = "0"+tMonth;
+	if ( tDate < 10) tDate = "0"+tDate;
+	document.getElementById("tDate").value = tMonth+"/"+tDate+"/"+tDay.getFullYear();
+ }
+
+
+// This loads the date automattically in the date field and loads the form id in the addLoadEvent
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+        
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+addLoadEvent(function() {
+  autoDate();
+  
+  //formid
+  
+}); 
+
+
+//This button toggle hidden displays
+
+function showAllRows() {
+  var y = document.getElementById('displayButton');
+  var x = document.getElementById("showRows");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.innerHTML = "Hide Additional Rows";
+  } else {
+    x.style.display = "none";
+    y.innerHTML = "Show Additional Rows";
+  }
+}
+
+
+//This button changes the asset desciption and manufacturer
+//SurfaceGo Button
+function changeDescriptionSG(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+
+    
+    
+}
+
+
+
+//ThinkPad Button
+function changeDescriptionTP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value="ThinkPad 11e">ThinkPad 11e</option> <option value ="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value="ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+//HP Button
+function changeDescriptionHP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value="HP Laptop">HP Laptop</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="HP">HP</option><option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+
+//Description Reset Button
+function resetDescription(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+
+    
+}
+    
+}
+
+
+
+
+</script>
+
+
+    
+
+
+
+
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="header" ></div>
+
+
+<!--Navigation/Header Stuff -->
+<div class="topnav" id="myTopnav"><a class="active" href="https://www.velgoodies.com">Home</a> <a href="https://outlook.office.com/" target="_blank">Email</a> <a href="http://www.scsk12.org/accessforall/deviceresources.php?PID=1758" target="_blank">Device Support</a> <a class="icon" href="javascript:void(0);" onclick="myFunction()"> </a></div>
+
+<div class="assetDispositionForm">
+<h1 id="top" style="color:white;"><img src="Images/scs.jpg" style="width:70px" /> Device Submission ID Search</h1>
+</div>
+
+
+<!-- End of Navigation/Header Stuff -->
+
+
+
+<form action="searchresults.php" id="adf" method="POST" name="adf" onsubmit="checkForm()"  required="">
+<div style="height:400x;overflow:auto;">
+    
+    <h4  ><span style= "background-color: yellow;">Note|| Search for the device using either the Submission ID <b>or</b> Asset Tag. Do not use more than one search field.</span></h4>
+<div class="row">
+
+
+
+
+
+
+<div class="col-md-2 col-xs-2">Date: <input id="tDate" name="tDate" placeholder="mm/dd/yyyy" required="" type="text" readonly/></div>
+
+
+<!--Entry Below-->
+
+
+
+
+<div class="col-md-3 col-xs-3">Submission ID: <input id="submissionId" name="submissionId"  type="text" /></div>
+
+<div class="col-md-3 col-xs-3">Asset Tag: <input id="assetTag" name="assetTag"  type="text" /></div>
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!--table style elements below-->
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-rz9m{position:-webkit-sticky;position:sticky;text-align:center;top:-1px;vertical-align:top;will-change:transform}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}
+
+
+
+.tg-rz9m{
+    background-color:#000000;
+    color: white;
+   
+}
+
+.tg th{ border:1px solid white;}
+</style>
+
+<br />
+<input onclick="myFunction()" type="button" value="Reset Form" />
+<input name="submit" type="submit" value="Submit" /></form>
+
+<footer>For additional support, please send an email to device_support@scsk12.org.</footer>
+</div>
+<!--Container Closing Div --></body>
+</html>

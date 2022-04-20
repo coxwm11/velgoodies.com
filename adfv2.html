@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+
+	<title>Device and Accessory Asset Disposition Form</title>
+	<link href="adf.css" rel="stylesheet" />
+	
+	<!--Bootstrap Components Below --><!-- Latest compiled and minified CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+	
+<!-- Removes the ability to press enter on form -->	
+	<script>
+	  $(document).ready(function() {
+  $(window).keydown(function(event){
+    if(event.keyCode == 13) {
+      event.preventDefault();
+      return false;
+    }
+  });
+});  
+	    
+	    
+	</script>
+	
+	
+
+<script>
+// Resets ADF
+function myFunction() {
+    
+    
+     let confirmAction = confirm("Are you sure you want to reset this form? This action can not be undone.");
+        if (confirmAction) {
+        
+          document.getElementById("adf").reset();
+          var formIdUnique = Date.now();
+
+var submissionId = formIdUnique; 
+document.getElementById("submissionId").value = submissionId;
+
+
+
+
+var tDay = new Date();
+	var tMonth = tDay.getMonth()+1;
+	var tDate = tDay.getDate();
+	if ( tMonth < 10) tMonth = "0"+tMonth;
+	if ( tDate < 10) tDate = "0"+tDate;
+	document.getElementById("tDate").value = tMonth+"/"+tDate+"/"+tDay.getFullYear();
+         
+          
+        } else {
+          alert("Form reset canceled.");
+        }
+   
+    
+}
+
+
+  
+// Upload Button 
+function myUploadFunction() {
+    window.open("https://scsk12.sharepoint.com/:f:/s/SCSLessonPLan/El1NhAnJb1tPpTuxX1PsfHwB6X_Nhpr8kenru2GcaoDpqQ?e=naeQn8");
+}
+
+
+// This calculates the date
+
+function autoDate () {
+	var tDay = new Date();
+	var tMonth = tDay.getMonth()+1;
+	var tDate = tDay.getDate();
+	if ( tMonth < 10) tMonth = "0"+tMonth;
+	if ( tDate < 10) tDate = "0"+tDate;
+	document.getElementById("tDate").value = tMonth+"/"+tDate+"/"+tDay.getFullYear();
+ }
+
+
+// This loads the date automattically in the date field and loads the form id in the addLoadEvent
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+        
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+addLoadEvent(function() {
+  autoDate();
+  
+  //formid
+  var formIdUnique = Date.now();
+var submissionId = formIdUnique; 
+document.getElementById("submissionId").value = submissionId;
+  
+  
+}); 
+
+
+//This button toggle hidden displays
+
+function showAllRows() {
+  var y = document.getElementById('displayButton');
+  var x = document.getElementById("showRows");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+    y.innerHTML = "Hide Additional Rows";
+  } else {
+    x.style.display = "none";
+    y.innerHTML = "Show Additional Rows";
+  }
+}
+
+
+//This button changes the asset desciption and manufacturer
+//SurfaceGo Button
+function changeDescriptionSG(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+
+    
+    
+}
+
+
+
+//ThinkPad Button
+function changeDescriptionTP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value="ThinkPad 11e">ThinkPad 11e</option> <option value ="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="HP Laptop">HP Laptop</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value="HP">HP</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value="ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+//HP Button
+function changeDescriptionHP(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var assetTag = document.getElementById(assetTagNum[i]);
+var serialNumNum = document.getElementById(serialNum[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    if(assetTag.value !== "" || serialNumNum.value !== ""){
+     
+      assetDescription.innerHTML = 
+      '<option value="HP Laptop">HP Laptop</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value = ""></option>';
+      
+      manfNum.innerHTML = '<option value="HP">HP</option><option value="Lenovo">Lenovo</option><option value="Microsoft">Microsoft</option><option value=""></option>';
+      
+  
+}else {
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+    
+}
+    
+}
+    
+    
+    
+    
+}
+
+
+
+//Description Reset Button
+function resetDescription(){
+
+var description = ["description1","description2","description3","description4","description5","description6","description7","description8","description9","description10","description11","description12","description13","description14","description15","description16","description17","description18","description19","description20","description21","description22","description23","description24","description25","description26","description27","description28","description29","description30","description31","description32","description33","description34","description35","description36","description37","description38","description39","description40","description41","description42","description43","description44","description45","description46","description47","description48","description49","description50"];
+
+var assetTagNum =  ["assetTag1","assetTag2","assetTag3","assetTag4","assetTag5","assetTag6","assetTag7","assetTag8","assetTag9","assetTag10","assetTag11","assetTag12","assetTag13","assetTag14","assetTag15","assetTag16","assetTag17","assetTag18","assetTag19","assetTag20","assetTag21","assetTag22","assetTag23","assetTag24","assetTag25","assetTag26","assetTag27","assetTag28","assetTag29","assetTag30","assetTag31","assetTag32","assetTag33","assetTag34","assetTag35","assetTag36","assetTag37","assetTag38","assetTag39","assetTag40","assetTag41","assetTag42","assetTag43","assetTag44","assetTag45","assetTag46","assetTag47","assetTag48","assetTag49","assetTag50"];
+
+var serialNum =  ["serialNum1","serialNum2","serialNum3","serialNum4","serialNum5","serialNum6","serialNum7","serialNum8","serialNum9","serialNum10","serialNum11","serialNum12","serialNum13","serialNum14","serialNum15","serialNum16","serialNum17","serialNum18","serialNum19","serialNum20","serialNum21","serialNum22","serialNum23","serialNum24","serialNum25","serialNum26","serialNum27","serialNum28","serialNum29","serialNum30","serialNum31","serialNum32","serialNum33","serialNum34","serialNum35","serialNum36","serialNum37","serialNum38","serialNum39","serialNum40","serialNum41","serialNum42","serialNum43","serialNum44","serialNum45","serialNum46","serialNum47","serialNum48","serialNum49","serialNum50"];
+
+var manf = ["manf1","manf2","manf3","manf4","manf5","manf6","manf7","manf8","manf9","manf10","manf11","manf12","manf13","manf14","manf15","manf16","manf17","manf18","manf19","manf20","manf21","manf22","manf23","manf24","manf25","manf26","manf27","manf28","manf29","manf30","manf31","manf32","manf33","manf34","manf35","manf36","manf37","manf38","manf39","manf40","manf41","manf42","manf43","manf44","manf45","manf46","manf47","manf48","manf49","manf50"];
+
+
+for (var i = 0; i<= 50; i++){
+    
+var assetDescription = document.getElementById(description[i]);
+var manfNum = document.getElementById(manf[i]);
+    
+    
+    assetDescription.innerHTML = 
+      '<option value = ""></option> <option value= "SurfaceGo Tablet">SurfaceGo Tablet</option><option value= "ThinkPad 11e">ThinkPad 11e</option><option value= "HP Laptop">HP Laptop</option>';
+      
+      manfNum.innerHTML = '<option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option>';
+
+    
+}
+    
+}
+
+
+
+
+</script>
+
+
+    
+
+
+
+
+
+</head>
+<body>
+<div class="container-fluid">
+<div class="header" ></div>
+
+
+<!--Navigation/Header Stuff -->
+<div class="topnav" id="myTopnav"><a class="active" href="https://www.velgoodies.com">Home</a> <a href="https://outlook.office.com/" target="_blank">Email</a> <a href="http://www.scsk12.org/accessforall/deviceresources.php?PID=1758" target="_blank">Device Support</a> <a class="icon" href="javascript:void(0);" onclick="myFunction()"> </a></div>
+
+<div class="assetDispositionForm">
+<h1 id="top" style="color:white;"><img src="Images/scs.jpg" style="width:70px" /> Device and Accessory Asset Disposition Form</h1>
+</div>
+
+<div class="instructions">
+<h5>Instructions:This form is to be used when either adding a new asset, transferring an asset to another location, disposing of an asset, repair and/or reporting stolen asset. Authorization must be obtained from either the school principal, department and/or division head prior to being transferred, disposed or removed from the school&#39;s/division&#39;s inventory. After submitting your Asset Disposition Form, please print or save as the submission as a PDF for your records. In addition, a copy of this form will be sent to the email address you provide. <strong><span style="background-color:#FFFF00;">Please include a copy of this form <u>inside and outside</u> of the box that you are sending with your devices. </span></strong> If additional support is needed, please email Virtual Education and Logisitics at device_support@scsk12.org.</h5>
+</div>
+<!-- End of Navigation/Header Stuff -->
+
+
+
+<form action="accessoryanddeviceform.php" id="adf" method="POST" name="adf" onsubmit="checkForm()"  required="">
+<div style="height:400x;overflow:auto;">
+<div class="row">
+<div class="col-md-4 col-xs-4">
+<h5>From: <select id="fromDivision" name="fromDivision" required="">
+    
+    <option value=""></option>
+    <option value="Virtual Education and Logistics Center   LOC: 2385    -   Route 3">Virtual Education and Logistics Center LOC: 2385    -   Route 3</option>
+   
+    <option value="A. B. Hill Elem    LOC: 2005   -   Route 4">A. B. Hill Elem    LOC: 2005   -   Route 4</option>
+<option value="A. Maceo Walker Middle    LOC: 2740   -   Route 3">A. Maceo Walker Middle    LOC: 2740   -   Route 3</option>
+
+<option value="Adolescent Parenting    LOC: 2824   -   Route 2">Adolescent Parenting    LOC: 2824   -   Route 2</option>
+<option value="Airways Achievement    LOC: 2010   -   Route 3">Airways Achievement    LOC: 2010   -   Route 3</option>
+<option value="Alcy Elem    LOC: 2015   -   Route 4">Alcy Elem    LOC: 2015   -   Route 4</option>
+<option value="Alton Elem    LOC: 2020   -   Route 4">Alton Elem    LOC: 2020   -   Route 4</option>
+<option value="American Way Middle    LOC: 2023   -   Route 3">American Way Middle    LOC: 2023   -   Route 3</option>
+<option value="Avon Lenox School    LOC: 2025   -   Route 1">Avon Lenox School    LOC: 2025   -   Route 1</option>
+<option value="Balmoral/Ridgeway Elem    LOC: 2610   -   Route 3">Balmoral/Ridgeway Elem    LOC: 2610   -   Route 3</option>
+<option value="Barret’s Chapel Middle    LOC: 10   -   Route 5">Barret’s Chapel Middle    LOC: 10   -   Route 5</option>
+ <option value="Bayer Building  -  Route 1">Bayer Building  -   Route 1</option>
+<option value="Belle Forest Elem    LOC: 8365   -   Route 3">Belle Forest Elem    LOC: 8365   -   Route 3</option>
+<option value="Bellevue Middle    LOC: 2040   -   Route 2">Bellevue Middle    LOC: 2040   -   Route 2</option>
+<option value="Berclair Elem    LOC: 2045   -   Route 1">Berclair Elem    LOC: 2045   -   Route 1</option>
+<option value="Bethel Grove Elem    LOC: 2050   -   Route 2">Bethel Grove Elem    LOC: 2050   -   Route 2</option>
+<option value="Bolton High    LOC: 35   -   Route 5">Bolton High    LOC: 35   -   Route 5</option>
+<option value="Booker T. Washington High    LOC: 2030   -   Route 4">Booker T. Washington High    LOC: 2030   -   Route 4</option>
+<option value="Brownville Rd. Elem    LOC: 2057   -   Route 1">Brownville Rd. Elem    LOC: 2057   -   Route 1</option>
+<option value="Bruce Elem    LOC: 2060   -   Route 2">Bruce Elem    LOC: 2060   -   Route 2</option>
+<option value="Carver College & Career Academy    LOC: 8066   -   Route 4">Carver College & Career Academy    LOC: 8066   -   Route 4</option>
+<option value="Central High    LOC: 2090   -   Route 2">Central High    LOC: 2090   -   Route 2</option>
+<option value="Cherokee Elem    LOC: 2100   -   Route 3">Cherokee Elem    LOC: 2100   -   Route 3</option>
+<option value="Chickasaw Middle    LOC: 2108   -   Route 4">Chickasaw Middle    LOC: 2108   -   Route 4</option>
+<option value="Chimneyrock Elem    LOC: 2049   -   Route 5">Chimneyrock Elem    LOC: 2049   -   Route 5</option>
+<option value="Colonial Middle    LOC: 2115   -   Route 2">Colonial Middle    LOC: 2115   -   Route 2</option>
+<option value="Cordova Elem    LOC: 2117   -   Route 5">Cordova Elem    LOC: 2117   -   Route 5</option>
+<option value="Cordova High    LOC: 2119   -   Route 5">Cordova High    LOC: 2119   -   Route 5</option>
+<option value="Cordova Middle    LOC: 2118   -   Route 5">Cordova Middle    LOC: 2118   -   Route 5</option>
+<option value="Craigmont High    LOC: 2126   -   Route 1">Craigmont High    LOC: 2126   -   Route 1</option>
+<option value="Craigmont Middle    LOC: 2128   -   Route 1">Craigmont Middle    LOC: 2128   -   Route 1</option>
+<option value="Cromwell Elem    LOC: 2130   -   Route 3">Cromwell Elem    LOC: 2130   -   Route 3</option>
+<option value="Crump Elem    LOC: 2133   -   Route 3">Crump Elem    LOC: 2133   -   Route 3</option>
+<option value="Cummings School    LOC: 2135   -   Route 4">Cummings School    LOC: 2135   -   Route 4</option>
+<option value="Delano Elem    LOC: 2145   -   Route 1">Delano Elem    LOC: 2145   -   Route 1</option>
+<option value="Dexter Elem    LOC: 67   -   Route 5">Dexter Elem    LOC: 67   -   Route 5</option>
+<option value="Dexter Middle    LOC: 68   -   Route 5">Dexter Middle    LOC: 68   -   Route 5</option>
+<option value="Double Tree Elem    LOC: 2153   -   Route 4">Double Tree Elem    LOC: 2153   -   Route 4</option>
+<option value="Douglass Elem/Middle    LOC: 2155   -   Route 2">Douglass Elem/Middle    LOC: 2155   -   Route 2</option>
+<option value="Douglass High    LOC: 2160   -   Route 2">Douglass High    LOC: 2160   -   Route 2</option>
+<option value="Downtown Elem    LOC: 2162   -   Route 4">Downtown Elem    LOC: 2162   -   Route 4</option>
+<option value="Dunbar Elem    LOC: 2165   -   Route 2">Dunbar Elem    LOC: 2165   -   Route 2</option>
+<option value="E. E. Jeter Elem    LOC: 80   -   Route 5">E. E. Jeter Elem    LOC: 80   -   Route 5</option>
+<option value="East High    LOC: 2180   -   Route 2">East High    LOC: 2180   -   Route 2</option>
+<option value="Egypt Elem    LOC: 2183   -   Route 1">Egypt Elem    LOC: 2183   -   Route 1</option>
+<option value="Evans Elem    LOC: 2185   -   Route 3">Evans Elem    LOC: 2185   -   Route 3</option>
+<option value="Ford Rd. Elem    LOC: 2210   -   Route 4">Ford Rd. Elem    LOC: 2210   -   Route 4</option>
+<option value="Fox Meadows Elem    LOC: 2215   -   Route 3">Fox Meadows Elem    LOC: 2215   -   Route 3</option>
+<option value="Gardenview Elem    LOC: 2230   -   Route 3">Gardenview Elem    LOC: 2230   -   Route 3</option>
+<option value="Geeter Middle    LOC: 2240   -   Route 4">Geeter Middle    LOC: 2240   -   Route 4</option>
+<option value="Georgian Hills Middle    LOC: 2255   -   Route 1">Georgian Hills Middle    LOC: 2255   -   Route 1</option>
+<option value="Germanshire Elem    LOC: 2258   -   Route 3">Germanshire Elem    LOC: 2258   -   Route 3</option>
+<option value="Germantown Elem    LOC: 105   -   Route 5">Germantown Elem    LOC: 105   -   Route 5</option>
+<option value="Germantown High    LOC: 110   -   Route 5">Germantown High    LOC: 110   -   Route 5</option>
+<option value="Germantown Middle    LOC: 107   -   Route 5">Germantown Middle    LOC: 107   -   Route 5</option>
+<option value="Getwell Elem    LOC: 2259   -   Route 3">Getwell Elem    LOC: 2259   -   Route 3</option>
+<option value="Gordon Success Academy    LOC: 2265   -   Route 2">Gordon Success Academy    LOC: 2265   -   Route 2</option>
+<option value="Grahamwood Elem    LOC: 2285   -   Route 1">Grahamwood Elem    LOC: 2285   -   Route 1</option>
+<option value="Grandview Heights Middle    LOC: 2835   -   Route 1">Grandview Heights Middle    LOC: 2835   -   Route 1</option>
+<option value="Hamilton High    LOC: 2317   -   Route 4">Hamilton High    LOC: 2317   -   Route 4</option>
+<option value="Hamilton K-8    LOC: 2315   -   Route 4">Hamilton K-8    LOC: 2315   -   Route 4</option>
+<option value="Hawkins Mill Elem    LOC: 2330   -   Route 1">Hawkins Mill Elem    LOC: 2330   -   Route 1</option>
+<option value="Havenview Middle    LOC: 2325   -   Route 4">Havenview Middle    LOC: 2325   -   Route 4</option>
+<option value="Hickory Ridge Elem    LOC: 2331   -   Route 3">Hickory Ridge Elem    LOC: 2331   -   Route 3</option>
+<option value="Hickory Ridge Middle    LOC: 2333   -   Route 3">Hickory Ridge Middle    LOC: 2333   -   Route 3</option>
+<option value="Highland Oaks Elem    LOC: 108   -   Route 3">Highland Oaks Elem    LOC: 108   -   Route 3</option>
+<option value="Highland Oaks Middle    LOC: 200   -   Route 3">Highland Oaks Middle    LOC: 200   -   Route 3</option>
+<option value="Hollis F. Price Middle College High    LOC: 2338   -   Route 4">Hollis F. Price Middle College High    LOC: 2338   -   Route 4</option>
+<option value="Holmes Rd. Elem    LOC: 2343   -   Route 4">Holmes Rd. Elem    LOC: 2343   -   Route 4</option>
+<option value="Ida B Wells    LOC: 2353   -   Route 2">Ida B Wells    LOC: 2353   -   Route 2</option>
+<option value="Idlewild Elem    LOC: 2355   -   Route 2">Idlewild Elem    LOC: 2355   -   Route 2</option>
+<option value="Jackson Elem    LOC: 2360   -   Route 1">Jackson Elem    LOC: 2360   -   Route 1</option>
+<option value="John P. Freeman School    LOC: 2362   -   Route 4">John P. Freeman School    LOC: 2362   -   Route 4</option>
+<option value="Kate Bond Elem    LOC: 2116   -   Route 5">Kate Bond Elem    LOC: 2116   -   Route 5</option>
+<option value="Kate Bond Middle    LOC: 2007   -   Route 5">Kate Bond Middle    LOC: 2007   -   Route 5</option>
+<option value="Keystone Elem    LOC: 2368   -   Route 1">Keystone Elem    LOC: 2368   -   Route 1</option>
+<option value="Kingsbury Elem    LOC: 2370   -   Route 1">Kingsbury Elem    LOC: 2370   -   Route 1</option>
+<option value="Kingsbury High    LOC: 2375   -   Route 1">Kingsbury High    LOC: 2375   -   Route 1</option>
+<option value="Kingsbury Middle    LOC: 2373   -   Route 1">Kingsbury Middle    LOC: 2373   -   Route 1</option>
+<option value="Kirby High    LOC: 2379   -   Route 3">Kirby High    LOC: 2379   -   Route 3</option>
+<option value="Kirby Middle    LOC: 2378   -   Route 3">Kirby Middle    LOC: 2378   -   Route 3</option>
+<option value="Knight Rd. Elem    LOC: 2385   -   Route 3">Knight Rd. Elem    LOC: 2385   -   Route 3</option>
+<option value="LaRose Elem    LOC: 2395   -   Route 2">LaRose Elem    LOC: 2395   -   Route 2</option>
+<option value="Levi Elem    LOC: 2435   -   Route 4">Levi Elem    LOC: 2435   -   Route 4</option>
+<option value="Lowrance Elem    LOC: 205   -   Route 3">Lowrance Elem    LOC: 205   -   Route 3</option>
+<option value="Lucie E. Campbell Elem    LOC: 2463   -   Route 1">Lucie E. Campbell Elem    LOC: 2463   -   Route 1</option>
+<option value="Lucy Elem    LOC: 115   -   Route 5">Lucy Elem    LOC: 115   -   Route 5</option>
+<option value="Macon-Hall Elem    LOC: 118   -   Route 5">Macon-Hall Elem    LOC: 118   -   Route 5</option>
+<option value="Magnolia Elem    LOC: 2470   -   Route 2">Magnolia Elem    LOC: 2470   -   Route 2</option>
+<option value="Manassas High    LOC: 2480   -   Route 2">Manassas High    LOC: 2480   -   Route 2</option>
+<option value="Maxine Smith STEM Academy    LOC: 2200   -   Route 2">Maxine Smith STEM Academy    LOC: 2200   -   Route 2</option>
+
+<option value="Medical District    LOC: 0019   -   Route 4">Medical District    LOC: 0019   -   Route 4</option>
+
+<option value="Melrose High    LOC: 2493   -   Route 2">Melrose High    LOC: 2493   -   Route 2</option>
+
+<option value="Memphis Virtual Schools    LOC: 2010   -   Route 3">Memphis Virtual Schools    LOC: 2010   -   Route 3</option>
+<option value="Middle College High    LOC: 2515   -   Route 2">Middle College High    LOC: 2515   -   Route 2</option>
+<option value="Mitchell High    LOC: 2520   -   Route 4">Mitchell High    LOC: 2520   -   Route 4</option>
+<option value="Mt. Pisgah Middle    LOC: 140   -   Route 5">Mt. Pisgah Middle    LOC: 140   -   Route 5</option>
+
+<option value="Newberry Elem    LOC: 2525   -   Route 3">Newberry Elem    LOC: 2525   -   Route 3</option>
+
+<option value="New Comers International Center    LOC: 2815   -   Route 3">New Comers International Center    LOC: 2815   -   Route 3</option>
+
+<option value="Northaven Elem   LOC: 0145   -   Route 5">Northaven Elem    LOC: 0145   -   Route 5</option>
+
+<option value="Northeast Prep School    LOC: 2822   -   Route 1">Northeast Prep School    LOC: 2822   -   Route 1</option>
+<option value="Northwest Prep    LOC: 2824   -   Route 2">Northwest Prep    LOC: 2824   -   Route 2</option>
+<option value="Oak Forest Elem    LOC: 2692   -   Route 3">Oak Forest Elem    LOC: 2692   -   Route 3</option>
+<option value="Oakhaven Elem    LOC: 2540   -   Route 3">Oakhaven Elem    LOC: 2540   -   Route 3</option>
+<option value="Oakhaven High    LOC: 2545   -   Route 3">Oakhaven High    LOC: 2545   -   Route 3</option>
+<option value="Oakhaven Middle    LOC: 2543   -   Route 3">Oakhaven Middle    LOC: 2543   -   Route 3</option>
+<option value="Oakshire Elem    LOC: 2550   -   Route 4">Oakshire Elem    LOC: 2550   -   Route 4</option>
+<option value="Overton High    LOC: 2565   -   Route 3">Overton High    LOC: 2565   -   Route 3</option>
+<option value="Parkway Village Elem    LOC: 2261   -   Route3">Parkway Village Elem    LOC: 2261   -   Route 3</option>
+
+<option value="Peabody Elem    LOC: 2570   -   Route 2">Peabody Elem    LOC: 2570   -   Route 2</option>
+<option value="Raleigh Egypt High    LOC: 2598   -   Route 1">Raleigh Egypt High    LOC: 2598   -   Route 1</option>
+<option value="Raleigh Egypt Middle    LOC: 2596   -   Route 1">Raleigh Egypt Middle    LOC: 2596   -   Route 1</option>
+<option value="Raleigh-Bartlett Meadows Elem    LOC: 2597   -   Route 1">Raleigh-Bartlett Meadows Elem    LOC: 2597   -   Route 1</option>
+<option value="Richland Elem    LOC: 2600   -   Route 1">Richland Elem    LOC: 2600   -   Route 1</option>
+<option value="Ridgeway Early Learning Ctr.    LOC: 7214   -   Route 3">Ridgeway Early Learning Ctr.    LOC: 7214   -   Route 3</option>
+<option value="Ridgeway High    LOC: 2615   -   Route 2">Ridgeway High    LOC: 2615   -   Route 2</option>
+<option value="Ridgeway Middle    LOC: 2612   -   Route 2">Ridgeway Middle    LOC: 2612   -   Route 2</option>
+<option value="Riverview Middle    LOC: 2625   -   Route 4">Riverview Middle    LOC: 2625   -   Route 4</option>
+<option value="Riverwood Elem    LOC: 2717   -   Route 5">Riverwood Elem    LOC: 2717   -   Route 5</option>
+<option value="Robert R. Church Elem    LOC: 2626   -   Route 3">Robert R. Church Elem    LOC: 2626   -   Route 3</option>
+<option value="Ross Elem    LOC: 2627   -   Route 3">Ross Elem    LOC: 2627   -   Route 3</option>
+<option value="Rozelle Elem    LOC: 2630   -   Route 2">Rozelle Elem    LOC: 2630   -   Route 2</option>
+<option value="Scenic Hills Elem    LOC: 2633   -   Route 1">Scenic Hills Elem    LOC: 2633   -   Route 1</option>
+<option value="Sea Isle Elem    LOC: 2637   -   Route 2">Sea Isle Elem    LOC: 2637   -   Route 2</option>
+<option value="Shady Grove Elem    LOC: 2640   -   Route 1">Shady Grove Elem    LOC: 2640   -   Route 1</option>
+<option value="Sharpe Elem    LOC: 23   -   Route 3">Sharpe Elem    LOC: 23   -   Route 3</option>
+<option value="Sheffield CTC    LOC: 2663   -   Route 3">Sheffield CTC    LOC: 2663   -   Route 3</option>
+<option value="Sheffield Elem    LOC: 2655   -   Route 3">Sheffield Elem    LOC: 2655   -   Route 3</option>
+<option value="Sheffield High    LOC: 2660   -   Route 3">Sheffield High    LOC: 2660   -   Route 3</option>
+<option value="Shelby Oaks Elem    LOC: 2680   -   Route 1">Shelby Oaks Elem    LOC: 2680   -   Route 1</option>
+<option value="Sherwood Elem    LOC: 2665   -   Route 2">Sherwood Elem    LOC: 2665   -   Route 2</option>
+<option value="Sherwood Middle    LOC: 2670   -   Route 2">Sherwood Middle    LOC: 2670   -   Route 2</option>
+<option value="Shrine School    LOC: 2675   -   Route 3">Shrine School    LOC: 2675   -   Route 3</option>
+<option value="Snowden School    LOC: 2690   -   Route 2">Snowden School    LOC: 2690   -   Route 2</option>
+<option value="South Park Elem    LOC: 2695   -   Route 3">South Park Elem    LOC: 2695   -   Route 3</option>
+<option value="Southwind Elem    LOC: 175   -   Route 3">Southwind Elem    LOC: 175   -   Route 3</option>
+<option value="Southwind High    LOC: 178   -   Route 3">Southwind High    LOC: 178   -   Route 3</option>
+<option value="Springdale Elem    LOC: 2705   -   Route 2">Springdale Elem    LOC: 2705   -   Route 2</option>
+<option value="Treadwell Elem    LOC: 2715   -   Route 1">Treadwell Elem    LOC: 2715   -   Route 1</option>
+<option value="Treadwell Middle    LOC: 2723   -   Route 1">Treadwell Middle    LOC: 2723   -   Route 1</option>
+<option value="Trezevant High    LOC: 2725   -   Route 1">Trezevant High    LOC: 2725   -   Route 1</option>
+<option value="Vollentine Elem    LOC: 2730   -   Route 2">Vollentine Elem    LOC: 2730   -   Route 2</option>
+<option value="W. H. Brewster Elem    LOC: 2053   -   Route 2">W. H. Brewster Elem    LOC: 2053   -   Route 2</option>
+<option value="Wells Station Elem    LOC: 2745   -   Route 1">Wells Station Elem    LOC: 2745   -   Route 1</option>
+<option value="Westhaven Elem    LOC: 2760   -   Route 4">Westhaven Elem    LOC: 2760   -   Route 4</option>
+<option value="Westside Elem    LOC: 2750   -   Route 5">Westside Elem    LOC: 2750   -   Route 5</option>
+<option value="Westwood High    LOC: 2770   -   Route 4">Westwood High    LOC: 2770   -   Route 4</option>
+<option value="White Station Elem    LOC: 2777   -   Route 1">White Station Elem    LOC: 2777   -   Route 1</option>
+<option value="White Station High    LOC: 2780   -   Route 2">White Station High    LOC: 2780   -   Route 2</option>
+<option value="White Station Middle    LOC: 2783   -   Route 1">White Station Middle    LOC: 2783   -   Route 1</option>
+<option value="Whitehaven Elem    LOC: 2785   -   Route 4">Whitehaven Elem    LOC: 2785   -   Route 4</option>
+<option value="Whitehaven High    LOC: 2790   -   Route 4">Whitehaven High    LOC: 2790   -   Route 4</option>
+<option value="Willow Oaks Elem    LOC: 2800   -   Route 3">Willow Oaks Elem    LOC: 2800   -   Route 3</option>
+<option value="Winchester Elem    LOC: 2805   -   Route 3">Winchester Elem    LOC: 2805   -   Route 3</option>
+<option value="Windridge Elem    LOC: 2810   -   Route 3">Windridge Elem    LOC: 2810   -   Route 3</option>
+<option value="Wooddale High    LOC: 2815   -   Route 3">Wooddale High    LOC: 2815   -   Route 3</option>
+<option value="Wooddale Middle    LOC: 2820   -   Route 3">Wooddale Middle    LOC: 2820   -   Route 3</option>
+<option value="Woodstock Middle    LOC: 185   -   Route 5">Woodstock Middle    LOC: 185   -   Route 5</option>
+
+
+
+</select>
+
+</h5>
+
+</div>
+
+<div class="col-md-4 col-xs-4">
+<h5>To: <select id="toDivision" name="toDivision" required="">
+    <option value=""></option>
+    <option value="Virtual Education and Logistics Center   LOC: 2385    -   Route 3">Virtual Education and Logistics Center LOC: 2385    -   Route 3</option>
+<option value="A. B. Hill Elem    LOC: 2005   -   Route 4">A. B. Hill Elem    LOC: 2005   -   Route 4</option>
+<option value="A. Maceo Walker Middle    LOC: 2740   -   Route 3">A. Maceo Walker Middle    LOC: 2740   -   Route 3</option>
+<option value="Adolescent Parenting    LOC: 2824   -   Route 2">Adolescent Parenting    LOC: 2824   -   Route 2</option>
+<option value="Airways Achievement    LOC: 2010   -   Route 3">Airways Achievement    LOC: 2010   -   Route 3</option>
+<option value="Alcy Elem    LOC: 2015   -   Route 4">Alcy Elem    LOC: 2015   -   Route 4</option>
+<option value="Alton Elem    LOC: 2020   -   Route 4">Alton Elem    LOC: 2020   -   Route 4</option>
+<option value="American Way Middle    LOC: 2023   -   Route 3">American Way Middle    LOC: 2023   -   Route 3</option>
+<option value="Avon Lenox School    LOC: 2025   -   Route 1">Avon Lenox School    LOC: 2025   -   Route 1</option>
+<option value="Balmoral/Ridgeway Elem    LOC: 2610   -   Route 3">Balmoral/Ridgeway Elem    LOC: 2610   -   Route 3</option>
+<option value="Barret’s Chapel Middle    LOC: 10   -   Route 5">Barret’s Chapel Middle    LOC: 10   -   Route 5</option>
+ <option value="Bayer Building  -  Route 1">Bayer Building  -   Route 1</option>
+<option value="Belle Forest Elem    LOC: 8365   -   Route 3">Belle Forest Elem    LOC: 8365   -   Route 3</option>
+<option value="Bellevue Middle    LOC: 2040   -   Route 2">Bellevue Middle    LOC: 2040   -   Route 2</option>
+<option value="Berclair Elem    LOC: 2045   -   Route 1">Berclair Elem    LOC: 2045   -   Route 1</option>
+<option value="Bethel Grove Elem    LOC: 2050   -   Route 2">Bethel Grove Elem    LOC: 2050   -   Route 2</option>
+<option value="Bolton High    LOC: 35   -   Route 5">Bolton High    LOC: 35   -   Route 5</option>
+<option value="Booker T. Washington High    LOC: 2030   -   Route 4">Booker T. Washington High    LOC: 2030   -   Route 4</option>
+<option value="Brownville Rd. Elem    LOC: 2057   -   Route 1">Brownville Rd. Elem    LOC: 2057   -   Route 1</option>
+<option value="Bruce Elem    LOC: 2060   -   Route 2">Bruce Elem    LOC: 2060   -   Route 2</option>
+<option value="Carver College & Career Academy    LOC: 8066   -   Route 4">Carver College & Career Academy    LOC: 8066   -   Route 4</option>
+<option value="Central High    LOC: 2090   -   Route 2">Central High    LOC: 2090   -   Route 2</option>
+<option value="Cherokee Elem    LOC: 2100   -   Route 3">Cherokee Elem    LOC: 2100   -   Route 3</option>
+<option value="Chickasaw Middle    LOC: 2108   -   Route 4">Chickasaw Middle    LOC: 2108   -   Route 4</option>
+<option value="Chimneyrock Elem    LOC: 2049   -   Route 5">Chimneyrock Elem    LOC: 2049   -   Route 5</option>
+<option value="Colonial Middle    LOC: 2115   -   Route 2">Colonial Middle    LOC: 2115   -   Route 2</option>
+<option value="Cordova Elem    LOC: 2117   -   Route 5">Cordova Elem    LOC: 2117   -   Route 5</option>
+<option value="Cordova High    LOC: 2119   -   Route 5">Cordova High    LOC: 2119   -   Route 5</option>
+<option value="Cordova Middle    LOC: 2118   -   Route 5">Cordova Middle    LOC: 2118   -   Route 5</option>
+<option value="Craigmont High    LOC: 2126   -   Route 1">Craigmont High    LOC: 2126   -   Route 1</option>
+<option value="Craigmont Middle    LOC: 2128   -   Route 1">Craigmont Middle    LOC: 2128   -   Route 1</option>
+<option value="Cromwell Elem    LOC: 2130   -   Route 3">Cromwell Elem    LOC: 2130   -   Route 3</option>
+<option value="Crump Elem    LOC: 2133   -   Route 3">Crump Elem    LOC: 2133   -   Route 3</option>
+<option value="Cummings School    LOC: 2135   -   Route 4">Cummings School    LOC: 2135   -   Route 4</option>
+<option value="Delano Elem    LOC: 2145   -   Route 1">Delano Elem    LOC: 2145   -   Route 1</option>
+<option value="Dexter Elem    LOC: 67   -   Route 5">Dexter Elem    LOC: 67   -   Route 5</option>
+<option value="Dexter Middle    LOC: 68   -   Route 5">Dexter Middle    LOC: 68   -   Route 5</option>
+<option value="Double Tree Elem    LOC: 2153   -   Route 4">Double Tree Elem    LOC: 2153   -   Route 4</option>
+<option value="Douglass Elem/Middle    LOC: 2155   -   Route 2">Douglass Elem/Middle    LOC: 2155   -   Route 2</option>
+<option value="Douglass High    LOC: 2160   -   Route 2">Douglass High    LOC: 2160   -   Route 2</option>
+<option value="Downtown Elem    LOC: 2162   -   Route 4">Downtown Elem    LOC: 2162   -   Route 4</option>
+<option value="Dunbar Elem    LOC: 2165   -   Route 2">Dunbar Elem    LOC: 2165   -   Route 2</option>
+<option value="E. E. Jeter Elem    LOC: 80   -   Route 5">E. E. Jeter Elem    LOC: 80   -   Route 5</option>
+<option value="East High    LOC: 2180   -   Route 2">East High    LOC: 2180   -   Route 2</option>
+<option value="Egypt Elem    LOC: 2183   -   Route 1">Egypt Elem    LOC: 2183   -   Route 1</option>
+<option value="Evans Elem    LOC: 2185   -   Route 3">Evans Elem    LOC: 2185   -   Route 3</option>
+<option value="Ford Rd. Elem    LOC: 2210   -   Route 4">Ford Rd. Elem    LOC: 2210   -   Route 4</option>
+<option value="Fox Meadows Elem    LOC: 2215   -   Route 3">Fox Meadows Elem    LOC: 2215   -   Route 3</option>
+<option value="Gardenview Elem    LOC: 2230   -   Route 3">Gardenview Elem    LOC: 2230   -   Route 3</option>
+<option value="Geeter Middle    LOC: 2240   -   Route 4">Geeter Middle    LOC: 2240   -   Route 4</option>
+<option value="Georgian Hills Middle    LOC: 2255   -   Route 1">Georgian Hills Middle    LOC: 2255   -   Route 1</option>
+<option value="Germanshire Elem    LOC: 2258   -   Route 3">Germanshire Elem    LOC: 2258   -   Route 3</option>
+<option value="Germantown Elem    LOC: 105   -   Route 5">Germantown Elem    LOC: 105   -   Route 5</option>
+<option value="Germantown High    LOC: 110   -   Route 5">Germantown High    LOC: 110   -   Route 5</option>
+<option value="Germantown Middle    LOC: 107   -   Route 5">Germantown Middle    LOC: 107   -   Route 5</option>
+<option value="Getwell Elem    LOC: 2259   -   Route 3">Getwell Elem    LOC: 2259   -   Route 3</option>
+<option value="Gordon Success Academy    LOC: 2265   -   Route 2">Gordon Success Academy    LOC: 2265   -   Route 2</option>
+<option value="Grahamwood Elem    LOC: 2285   -   Route 1">Grahamwood Elem    LOC: 2285   -   Route 1</option>
+<option value="Grandview Heights Middle    LOC: 2835   -   Route 1">Grandview Heights Middle    LOC: 2835   -   Route 1</option>
+<option value="Hamilton High    LOC: 2317   -   Route 4">Hamilton High    LOC: 2317   -   Route 4</option>
+<option value="Hamilton K-8    LOC: 2315   -   Route 4">Hamilton K-8    LOC: 2315   -   Route 4</option>
+<option value="Hawkins Mill Elem    LOC: 2330   -   Route 1">Hawkins Mill Elem    LOC: 2330   -   Route 1</option>
+<option value="Havenview Middle    LOC: 2325   -   Route 4">Havenview Middle    LOC: 2325   -   Route 4</option>
+<option value="Hickory Ridge Elem    LOC: 2331   -   Route 3">Hickory Ridge Elem    LOC: 2331   -   Route 3</option>
+<option value="Hickory Ridge Middle    LOC: 2333   -   Route 3">Hickory Ridge Middle    LOC: 2333   -   Route 3</option>
+<option value="Highland Oaks Elem    LOC: 108   -   Route 3">Highland Oaks Elem    LOC: 108   -   Route 3</option>
+<option value="Highland Oaks Middle    LOC: 200   -   Route 3">Highland Oaks Middle    LOC: 200   -   Route 3</option>
+<option value="Hollis F. Price Middle College High    LOC: 2338   -   Route 4">Hollis F. Price Middle College High    LOC: 2338   -   Route 4</option>
+<option value="Holmes Rd. Elem    LOC: 2343   -   Route 4">Holmes Rd. Elem    LOC: 2343   -   Route 4</option>
+<option value="Ida B Wells    LOC: 2353   -   Route 2">Ida B Wells    LOC: 2353   -   Route 2</option>
+<option value="Idlewild Elem    LOC: 2355   -   Route 2">Idlewild Elem    LOC: 2355   -   Route 2</option>
+<option value="Jackson Elem    LOC: 2360   -   Route 1">Jackson Elem    LOC: 2360   -   Route 1</option>
+<option value="John P. Freeman School    LOC: 2362   -   Route 4">John P. Freeman School    LOC: 2362   -   Route 4</option>
+<option value="Kate Bond Elem    LOC: 2116   -   Route 5">Kate Bond Elem    LOC: 2116   -   Route 5</option>
+<option value="Kate Bond Middle    LOC: 2007   -   Route 5">Kate Bond Middle    LOC: 2007   -   Route 5</option>
+<option value="Keystone Elem    LOC: 2368   -   Route 1">Keystone Elem    LOC: 2368   -   Route 1</option>
+<option value="Kingsbury Elem    LOC: 2370   -   Route 1">Kingsbury Elem    LOC: 2370   -   Route 1</option>
+<option value="Kingsbury High    LOC: 2375   -   Route 1">Kingsbury High    LOC: 2375   -   Route 1</option>
+<option value="Kingsbury Middle    LOC: 2373   -   Route 1">Kingsbury Middle    LOC: 2373   -   Route 1</option>
+<option value="Kirby High    LOC: 2379   -   Route 3">Kirby High    LOC: 2379   -   Route 3</option>
+<option value="Kirby Middle    LOC: 2378   -   Route 3">Kirby Middle    LOC: 2378   -   Route 3</option>
+<option value="Knight Rd. Elem    LOC: 2385   -   Route 3">Knight Rd. Elem    LOC: 2385   -   Route 3</option>
+<option value="LaRose Elem    LOC: 2395   -   Route 2">LaRose Elem    LOC: 2395   -   Route 2</option>
+<option value="Levi Elem    LOC: 2435   -   Route 4">Levi Elem    LOC: 2435   -   Route 4</option>
+<option value="Lowrance Elem    LOC: 205   -   Route 3">Lowrance Elem    LOC: 205   -   Route 3</option>
+<option value="Lucie E. Campbell Elem    LOC: 2463   -   Route 1">Lucie E. Campbell Elem    LOC: 2463   -   Route 1</option>
+<option value="Lucy Elem    LOC: 115   -   Route 5">Lucy Elem    LOC: 115   -   Route 5</option>
+<option value="Macon-Hall Elem    LOC: 118   -   Route 5">Macon-Hall Elem    LOC: 118   -   Route 5</option>
+<option value="Magnolia Elem    LOC: 2470   -   Route 2">Magnolia Elem    LOC: 2470   -   Route 2</option>
+<option value="Manassas High    LOC: 2480   -   Route 2">Manassas High    LOC: 2480   -   Route 2</option>
+<option value="Maxine Smith STEM Academy    LOC: 2200   -   Route 2">Maxine Smith STEM Academy    LOC: 2200   -   Route 2</option>
+
+<option value="Medical District    LOC: 0019   -   Route 4">Medical District    LOC: 0019   -   Route 4</option>
+
+<option value="Melrose High    LOC: 2493   -   Route 2">Melrose High    LOC: 2493   -   Route 2</option>
+
+<option value="Memphis Virtual Schools    LOC: 2010   -   Route 3">Memphis Virtual Schools    LOC: 2010   -   Route 3</option>
+<option value="Middle College High    LOC: 2515   -   Route 2">Middle College High    LOC: 2515   -   Route 2</option>
+<option value="Mitchell High    LOC: 2520   -   Route 4">Mitchell High    LOC: 2520   -   Route 4</option>
+<option value="Mt. Pisgah Middle    LOC: 140   -   Route 5">Mt. Pisgah Middle    LOC: 140   -   Route 5</option>
+<option value="Newberry Elem    LOC: 2525   -   Route 3">Newberry Elem    LOC: 2525   -   Route 3</option>
+
+<option value="New Comers International Center    LOC: 2815   -   Route 3">New Comers International Center    LOC: 2815   -   Route 3</option>
+
+<option value="Northaven Elem   LOC: 0145   -   Route 5">Northaven Elem    LOC: 0145   -   Route 5</option>
+<option value="Northeast Prep School    LOC: 2822   -   Route 1">Northeast Prep School    LOC: 2822   -   Route 1</option>
+<option value="Northwest Prep    LOC: 2824   -   Route 2">Northwest Prep    LOC: 2824   -   Route 2</option>
+<option value="Oak Forest Elem    LOC: 2692   -   Route 3">Oak Forest Elem    LOC: 2692   -   Route 3</option>
+<option value="Oakhaven Elem    LOC: 2540   -   Route 3">Oakhaven Elem    LOC: 2540   -   Route 3</option>
+<option value="Oakhaven High    LOC: 2545   -   Route 3">Oakhaven High    LOC: 2545   -   Route 3</option>
+<option value="Oakhaven Middle    LOC: 2543   -   Route 3">Oakhaven Middle    LOC: 2543   -   Route 3</option>
+<option value="Oakshire Elem    LOC: 2550   -   Route 4">Oakshire Elem    LOC: 2550   -   Route 4</option>
+<option value="Overton High    LOC: 2565   -   Route 3">Overton High    LOC: 2565   -   Route 3</option>
+<option value="Parkway Village Elem    LOC: 2261   -   Route3">Parkway Village Elem    LOC: 2261   -   Route 3</option>
+<option value="Peabody Elem    LOC: 2570   -   Route 2">Peabody Elem    LOC: 2570   -   Route 2</option>
+<option value="Raleigh Egypt High    LOC: 2598   -   Route 1">Raleigh Egypt High    LOC: 2598   -   Route 1</option>
+<option value="Raleigh Egypt Middle    LOC: 2596   -   Route 1">Raleigh Egypt Middle    LOC: 2596   -   Route 1</option>
+<option value="Raleigh-Bartlett Meadows Elem    LOC: 2597   -   Route 1">Raleigh-Bartlett Meadows Elem    LOC: 2597   -   Route 1</option>
+<option value="Richland Elem    LOC: 2600   -   Route 1">Richland Elem    LOC: 2600   -   Route 1</option>
+<option value="Ridgeway Early Learning Ctr.    LOC: 7214   -   Route 3">Ridgeway Early Learning Ctr.    LOC: 7214   -   Route 3</option>
+<option value="Ridgeway High    LOC: 2615   -   Route 2">Ridgeway High    LOC: 2615   -   Route 2</option>
+<option value="Ridgeway Middle    LOC: 2612   -   Route 2">Ridgeway Middle    LOC: 2612   -   Route 2</option>
+<option value="Riverview Middle    LOC: 2625   -   Route 4">Riverview Middle    LOC: 2625   -   Route 4</option>
+<option value="Riverwood Elem    LOC: 2717   -   Route 5">Riverwood Elem    LOC: 2717   -   Route 5</option>
+<option value="Robert R. Church Elem    LOC: 2626   -   Route 3">Robert R. Church Elem    LOC: 2626   -   Route 3</option>
+<option value="Ross Elem    LOC: 2627   -   Route 3">Ross Elem    LOC: 2627   -   Route 3</option>
+<option value="Rozelle Elem    LOC: 2630   -   Route 2">Rozelle Elem    LOC: 2630   -   Route 2</option>
+<option value="Scenic Hills Elem    LOC: 2633   -   Route 1">Scenic Hills Elem    LOC: 2633   -   Route 1</option>
+<option value="Sea Isle Elem    LOC: 2637   -   Route 2">Sea Isle Elem    LOC: 2637   -   Route 2</option>
+<option value="Shady Grove Elem    LOC: 2640   -   Route 1">Shady Grove Elem    LOC: 2640   -   Route 1</option>
+<option value="Sharpe Elem    LOC: 23   -   Route 3">Sharpe Elem    LOC: 23   -   Route 3</option>
+<option value="Sheffield CTC    LOC: 2663   -   Route 3">Sheffield CTC    LOC: 2663   -   Route 3</option>
+<option value="Sheffield Elem    LOC: 2655   -   Route 3">Sheffield Elem    LOC: 2655   -   Route 3</option>
+<option value="Sheffield High    LOC: 2660   -   Route 3">Sheffield High    LOC: 2660   -   Route 3</option>
+<option value="Shelby Oaks Elem    LOC: 2680   -   Route 1">Shelby Oaks Elem    LOC: 2680   -   Route 1</option>
+<option value="Sherwood Elem    LOC: 2665   -   Route 2">Sherwood Elem    LOC: 2665   -   Route 2</option>
+<option value="Sherwood Middle    LOC: 2670   -   Route 2">Sherwood Middle    LOC: 2670   -   Route 2</option>
+<option value="Shrine School    LOC: 2675   -   Route 3">Shrine School    LOC: 2675   -   Route 3</option>
+<option value="Snowden School    LOC: 2690   -   Route 2">Snowden School    LOC: 2690   -   Route 2</option>
+<option value="South Park Elem    LOC: 2695   -   Route 3">South Park Elem    LOC: 2695   -   Route 3</option>
+<option value="Southwind Elem    LOC: 175   -   Route 3">Southwind Elem    LOC: 175   -   Route 3</option>
+<option value="Southwind High    LOC: 178   -   Route 3">Southwind High    LOC: 178   -   Route 3</option>
+<option value="Springdale Elem    LOC: 2705   -   Route 2">Springdale Elem    LOC: 2705   -   Route 2</option>
+<option value="Treadwell Elem    LOC: 2715   -   Route 1">Treadwell Elem    LOC: 2715   -   Route 1</option>
+<option value="Treadwell Middle    LOC: 2723   -   Route 1">Treadwell Middle    LOC: 2723   -   Route 1</option>
+<option value="Trezevant High    LOC: 2725   -   Route 1">Trezevant High    LOC: 2725   -   Route 1</option>
+<option value="Vollentine Elem    LOC: 2730   -   Route 2">Vollentine Elem    LOC: 2730   -   Route 2</option>
+<option value="W. H. Brewster Elem    LOC: 2053   -   Route 2">W. H. Brewster Elem    LOC: 2053   -   Route 2</option>
+<option value="Wells Station Elem    LOC: 2745   -   Route 1">Wells Station Elem    LOC: 2745   -   Route 1</option>
+<option value="Westhaven Elem    LOC: 2760   -   Route 4">Westhaven Elem    LOC: 2760   -   Route 4</option>
+<option value="Westside Elem    LOC: 2750   -   Route 5">Westside Elem    LOC: 2750   -   Route 5</option>
+<option value="Westwood High    LOC: 2770   -   Route 4">Westwood High    LOC: 2770   -   Route 4</option>
+<option value="White Station Elem    LOC: 2777   -   Route 1">White Station Elem    LOC: 2777   -   Route 1</option>
+<option value="White Station High    LOC: 2780   -   Route 2">White Station High    LOC: 2780   -   Route 2</option>
+<option value="White Station Middle    LOC: 2783   -   Route 1">White Station Middle    LOC: 2783   -   Route 1</option>
+<option value="Whitehaven Elem    LOC: 2785   -   Route 4">Whitehaven Elem    LOC: 2785   -   Route 4</option>
+<option value="Whitehaven High    LOC: 2790   -   Route 4">Whitehaven High    LOC: 2790   -   Route 4</option>
+<option value="Willow Oaks Elem    LOC: 2800   -   Route 3">Willow Oaks Elem    LOC: 2800   -   Route 3</option>
+<option value="Winchester Elem    LOC: 2805   -   Route 3">Winchester Elem    LOC: 2805   -   Route 3</option>
+<option value="Windridge Elem    LOC: 2810   -   Route 3">Windridge Elem    LOC: 2810   -   Route 3</option>
+<option value="Wooddale High    LOC: 2815   -   Route 3">Wooddale High    LOC: 2815   -   Route 3</option>
+<option value="Wooddale Middle    LOC: 2820   -   Route 3">Wooddale Middle    LOC: 2820   -   Route 3</option>
+<option value="Woodstock Middle    LOC: 185   -   Route 5">Woodstock Middle    LOC: 185   -   Route 5</option>
+
+
+
+    
+
+    
+    </select></h5>
+</div>
+
+<div class="col-md-2 col-xs-2">
+    
+<h5>Indicate Type: <select id="indicateType" name="indicateType" required=""><option value=""></option>
+<option value="Transfer">Transfer</option>
+<option value="Warranty">Damaged</option>
+
+</select></h5>
+</div>
+
+<div class="col-md-2 col-xs-2">Date: <input id="tDate" name="tDate" placeholder="mm/dd/yyyy" required="" type="text" readonly /></div>
+</div>
+
+<!--Quantity Row Below-->
+
+<div class="row">
+
+
+<div class="col-md-3 col-xs-3">Submission ID: <input id="submissionId" name="submissionId" readonly="readonly" type="text" /></div>
+
+<div class="col-md-3 col-xs-3">Email: <input id="email" name="email" required="" type="text" /></div>
+</div>
+</div>
+
+<p><strong><span style="color:#000000;"><span style="background-color:#FFFF00;">(Note: ** = Required Field)</span></span></strong><br /></p>
+
+
+<input onclick="myFunction()" type="button" value="Reset Form" /> 
+<input name="submit" type="submit" value="Submit"/>
+
+
+
+<br>
+
+<br>
+
+
+<!--table style elements below-->
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-rz9m{position:-webkit-sticky;position:sticky;text-align:center;top:-1px;vertical-align:top;will-change:transform}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}
+
+
+
+.tg-rz9m{
+    background-color:#000000;
+    color: white;
+   
+}
+
+.tg th{ border:1px solid white;}
+</style>
+<h2> Accessory Inventory Return </h2>
+<p ><strong><span style="background-color: yellow;"> **Note|| Please indicate the itemized number of accessories returned for keyboards and chargers in the below table.</span></strong></p>
+<p>If no accessories will be entered, enter "0" in the Accessory Quantity for Accessory Row Number 1. </p>
+<div class="tg-wrap">
+    
+    <!-- Accessory Table Begins Below this Line -->
+    
+    <table class="tg" style="undefined;table-layout: fixed; width: 100%;background-color:#F0F0F0; ">
+	<!--<colgroup>
+		<col style="width:100px" />
+		<col style="width: 210px" />
+		<col style="width: 238px" />
+		<col style="width: 217px" />
+		<col style="width: 154px" />
+		<col style="width: 218px" />
+		<col style="width: 152px" />
+	</colgroup>-->
+	<thead>
+		<tr>
+			<th class="tg-rz9m">Accessory Row Number</th>
+			<th class="tg-rz9m">Accessory Asset Description**</th>
+	
+		
+			<th class="tg-rz9m">Accessory Quantity</th>
+			
+				<th class="tg-rz9m">PSID (Office Use Only)</th>
+		
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">1</td>
+			<td class="tg-0lax-ad">
+			
+			<center>
+			    
+			    <select id="adescription1" name="adescription1" required="">
+			        
+			        
+			        <option value =""></option>
+			        
+			         <optgroup label="Device Chargers">
+			      
+			        
+			      
+			        
+			        <option value="Microsoft SurfaceGo Charger">Microsoft SurfaceGo Charger</option>
+			        
+			        <option value="Lenovo Think Pad 11e Charger">Lenovo Think Pad 11e Charger</option>
+			        
+			        <option value="HP Laptop Charger">HP Laptop Charger</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Accessories">
+			         <option value="SurfaceGo Screen Protector">SurfaceGo Screen Protector</option>
+			         
+			          <option value="SurfaceGo Protective Case">SurfaceGo Protective Case</option>
+			          
+			           <option value="SurfaceGo Keyboard">SurfaceGo Keyboard</option>
+			        </optgroup>
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Hotspot">
+			         <option value="T-Mobile Hotspot">T-Mobile Hotspot</option>
+			          <option value="AT&T Hotspot">AT&T Hotspot</option>
+			         
+			       
+			         
+			         
+			        </optgroup>
+			        </select>
+			        
+			        </center>
+			</td>
+			
+		
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="aqty1" name="aqty1" type="text" required/>
+			    </center>
+			</td>
+			
+			
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="apsid1" name="apsid1" type="text" />
+			    </center>
+			</td>
+			
+		</tr>
+	
+	
+	
+	
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">2</td>
+			<td class="tg-0lax-ad">
+			
+			<center>
+			    
+			    <select id="adescription2" name="adescription2" required="">
+			        
+			        <option value =""></option>
+			        
+			       <optgroup label="Device Chargers">
+			        
+			        <option value="Microsoft SurfaceGo Charger">Microsoft SurfaceGo Charger</option>
+			        
+			        <option value="Lenovo Think Pad 11e Charger">Lenovo Think Pad 11e Charger</option>
+			        
+			        <option value="HP Laptop Charger">HP Laptop Charger</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Accessories">
+			         <option value="SurfaceGo Screen Protector">SurfaceGo Screen Protector</option>
+			         
+			          <option value="SurfaceGo Protective Case">SurfaceGo Protective Case</option>
+			          
+			           <option value="SurfaceGo Keyboard">SurfaceGo Keyboard</option>
+			        </optgroup>
+			        
+			         <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Hotspot">
+			          <option value="T-Mobile Hotspot">T-Mobile Hotspot</option>
+			          <option value="AT&T Hotspot">AT&T Hotspot</option>
+			         
+			         
+			        </optgroup>
+			        </select>
+			        
+			        </center>
+			</td>
+			
+		
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="aqty2" name="aqty2" type="text" />
+			    </center>
+			</td>
+			
+			
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="apsid2" name="apsid2" type="text" />
+			    </center>
+			</td>
+			
+		</tr>
+		
+		
+			<tr>
+			<td class="number" style="text-align: center; font-weight:bold">3</td>
+			<td class="tg-0lax-ad">
+			
+			<center>
+			    
+			    <select id="adescription3" name="adescription3" required="">
+			        
+			        <option value =""></option>
+			        
+			       <optgroup label="Device Chargers">
+			        
+			        <option value="Microsoft SurfaceGo Charger">Microsoft SurfaceGo Charger</option>
+			        
+			        <option value="Lenovo Think Pad 11e Charger">Lenovo Think Pad 11e Charger</option>
+			        
+			        <option value="HP Laptop Charger">HP Laptop Charger</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Accessories">
+			         <option value="SurfaceGo Screen Protector">SurfaceGo Screen Protector</option>
+			         
+			          <option value="SurfaceGo Protective Case">SurfaceGo Protective Case</option>
+			          
+			           <option value="SurfaceGo Keyboard">SurfaceGo Keyboard</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Hotspot">
+			          <option value="T-Mobile Hotspot">T-Mobile Hotspot</option>
+			          <option value="AT&T Hotspot">AT&T Hotspot</option>
+			         
+			         
+			        </optgroup>
+			        </select>
+			        
+			        </center>
+			</td>
+			
+		
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="aqty3" name="aqty3" type="text" />
+			    </center>
+			</td>
+			
+			
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="apsid3" name="apsid3" type="text" />
+			    </center>
+			</td>
+			
+		</tr>
+		
+		
+		
+			<tr>
+			<td class="number" style="text-align: center; font-weight:bold">4</td>
+			<td class="tg-0lax-ad">
+			
+			<center>
+			    
+			    <select id="adescription4" name="adescription4" required="">
+			        
+			        <option value =""></option>
+			        
+			       <optgroup label="Device Chargers">
+			        
+			        <option value="Microsoft SurfaceGo Charger">Microsoft SurfaceGo Charger</option>
+			        
+			        <option value="Lenovo Think Pad 11e Charger">Lenovo Think Pad 11e Charger</option>
+			        
+			        <option value="HP Laptop Charger">HP Laptop Charger</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Accessories">
+			         <option value="SurfaceGo Screen Protector">SurfaceGo Screen Protector</option>
+			         
+			          <option value="SurfaceGo Protective Case">SurfaceGo Protective Case</option>
+			          
+			           <option value="SurfaceGo Keyboard">SurfaceGo Keyboard</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Hotspot">
+			          <option value="T-Mobile Hotspot">T-Mobile Hotspot</option>
+			          <option value="AT&T Hotspot">AT&T Hotspot</option>
+			         
+			         
+			        </optgroup>
+			        </select>
+			        
+			        </center>
+			</td>
+			
+		
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="aqty4" name="aqty4" type="text" />
+			    </center>
+			</td>
+			
+			
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="apsid4" name="apsid4" type="text" />
+			    </center>
+			</td>
+			
+		</tr>
+
+
+
+	<tr>
+			<td class="number" style="text-align: center; font-weight:bold">5</td>
+			<td class="tg-0lax-ad">
+			
+			<center>
+			    
+			    <select id="adescription5" name="adescription5" required="">
+			        
+			        <option value =""></option>
+			        
+			       <optgroup label="Device Chargers">
+			        
+			        <option value="Microsoft SurfaceGo Charger">Microsoft SurfaceGo Charger</option>
+			        
+			        <option value="Lenovo Think Pad 11e Charger">Lenovo Think Pad 11e Charger</option>
+			        
+			        <option value="HP Laptop Charger">HP Laptop Charger</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Accessories">
+			         <option value="SurfaceGo Screen Protector">SurfaceGo Screen Protector</option>
+			         
+			          <option value="SurfaceGo Protective Case">SurfaceGo Protective Case</option>
+			          
+			           <option value="SurfaceGo Keyboard">SurfaceGo Keyboard</option>
+			        </optgroup>
+			        
+			        <option value =" " selected disabled> </option>
+			        
+			         <optgroup label="Hotspot">
+			          <option value="T-Mobile Hotspot">T-Mobile Hotspot</option>
+			          <option value="AT&T Hotspot">AT&T Hotspot</option>
+			         
+			         
+			        </optgroup>
+			        </select>
+			        
+			        </center>
+			</td>
+			
+		
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="aqty5" name="aqty5" type="text" />
+			    </center>
+			</td>
+			
+			
+			<td class="tg-0lax">
+			    
+			<center>
+			    <input id="apsid5" name="apsid5" type="text" />
+			    </center>
+			</td>
+			
+		</tr>
+	
+	</tbody>
+</table>
+
+<!-- ADF Accessory End Above this Line -->
+
+
+<br />
+
+<h2> Device Inventory Return </h2>
+<div>
+<label>Asset Description easyClick:</label>
+<input onclick="changeDescriptionSG()" type="button" value="Change All to SurfaceGo Tablets" /> 
+<input  onclick="changeDescriptionTP()" type="button" value="Change All to ThinkPad 11e" /> 
+<input  onclick="changeDescriptionHP()" type="button" value="Change All to HP Laptop" /> 
+<input onclick="resetDescription()" type="button" value="Reset Descriptions" /> 
+</div>
+<br />
+
+<div class="col-md-3 col-xs-3">Device Quantity: <input id="quantity" name="quantity" required="" type="text" /> <p>If no devices will be entered, enter "0".</p></div>
+<br>
+<br>     
+<table class="tg" style="undefined;table-layout: fixed; width: 100%">
+	<!--<colgroup>
+		<col style="width:100px" />
+		<col style="width: 210px" />
+		<col style="width: 238px" />
+		<col style="width: 217px" />
+		<col style="width: 154px" />
+		<col style="width: 218px" />
+		<col style="width: 152px" />
+	</colgroup>-->
+	<thead>
+		<tr>
+			<th class="tg-rz9m">Number</th>
+			<th class="tg-rz9m">Asset Description**</th>
+			<th class="tg-rz9m">SCS Asset Tag Number**</th>
+			<th class="tg-rz9m">Serial Number**</th>
+			<th class="tg-rz9m">Manufacturer**</th>
+			<th class="tg-rz9m">PSID (Office Use Only)</th>
+			<th class="tg-rz9m">Acquisition Date (Office Use Only)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">1</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description1" name="description1" ><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag1" name="assetTag1"  type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum1" name="serialNum1" type="text"/></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf1" name="manf1" ><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid1" name="psid1" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate1" name="acqDate1" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">2</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description2" name="description2"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag2" name="assetTag2" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum2" name="serialNum2" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf2" name="manf2"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid2" name="psid2" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate2" name="acqDate2" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">3</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description3" name="description3"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag3" name="assetTag3" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum3" name="serialNum3" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf3" name="manf3"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid3" name="psid3" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate3" name="acqDate3" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">4</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description4" name="description4"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag4" name="assetTag4" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum4" name="serialNum4" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf4" name="manf4"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid4" name="psid4" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate4" name="acqDate4" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">5</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description5" name="description5"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag5" name="assetTag5" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum5" name="serialNum5" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf5" name="manf5"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid5" name="psid5" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate5" name="acqDate5" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">6</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description6" name="description6"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag6" name="assetTag6" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum6" name="serialNum6" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf6" name="manf6"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid6" name="psid6" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate6" name="acqDate6" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">7</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description7" name="description7"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag7" name="assetTag7" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum7" name="serialNum7" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf7" name="manf7"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid7" name="psid7" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate7" name="acqDate7" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">8</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description8" name="description8"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag8" name="assetTag8" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum8" name="serialNum8" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf8" name="manf8"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid8" name="psid8" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate8" name="acqDate8" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">9</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description9" name="description9"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag9" name="assetTag9" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum9" name="serialNum9" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf9" name="manf9"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid9" name="psid9" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate9" name="acqDate9" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">10</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description10" name="description10"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag10" name="assetTag10" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum10" name="serialNum10" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf10" name="manf10"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid10" name="psid10" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate10" name="acqDate10" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">11</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description11" name="description11"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag11" name="assetTag11" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum11" name="serialNum11" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf11" name="manf11"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid11" name="psid11" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate11" name="acqDate11" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">12</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description12" name="description12"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag12" name="assetTag12" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum12" name="serialNum12" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf12" name="manf12"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid12" name="psid12" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate12" name="acqDate12" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">13</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description13" name="description13"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag13" name="assetTag13" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum13" name="serialNum13" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf13" name="manf13"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid13" name="psid13" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate13" name="acqDate13" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">14</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description14" name="description14"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag14" name="assetTag14" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum14" name="serialNum14" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf14" name="manf14"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid14" name="psid14" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate14" name="acqDate14" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">15</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description15" name="description15"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag15" name="assetTag15" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum15" name="serialNum15" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf15" name="manf15"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid15" name="psid15" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate15" name="acqDate15" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">16</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description16" name="description16"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag16" name="assetTag16" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum16" name="serialNum16" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf16" name="manf16"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid16" name="psid16" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate16" name="acqDate16" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">17</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description17" name="description17"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag17" name="assetTag17" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum17" name="serialNum17" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf17" name="manf17"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid17" name="psid17" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate17" name="acqDate17" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">18</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description18" name="description18"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag18" name="assetTag18" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum18" name="serialNum18" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf18" name="manf18"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid18" name="psid18" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate18" name="acqDate18" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">19</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description19" name="description19"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag19" name="assetTag19" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum19" name="serialNum19" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf19" name="manf19"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid19" name="psid19" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate19" name="acqDate19" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">20</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description20" name="description20"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag20" name="assetTag20" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum20" name="serialNum20" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf20" name="manf20"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid20" name="psid20" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate20" name="acqDate20" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">21</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description21" name="description21"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag21" name="assetTag21" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum21" name="serialNum21" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf21" name="manf21"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid21" name="psid21" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate21" name="acqDate21" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">22</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description22" name="description22"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag22" name="assetTag22" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum22" name="serialNum22" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf22" name="manf22"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid22" name="psid22" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate22" name="acqDate22" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">23</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description23" name="description23"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag23" name="assetTag23" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum23" name="serialNum23" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf23" name="manf23"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid23" name="psid23" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate23" name="acqDate23" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">24</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description24" name="description24"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag24" name="assetTag24" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum24" name="serialNum24" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf24" name="manf24"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid24" name="psid24" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate24" name="acqDate24" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">25</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description25" name="description25"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag25" name="assetTag25" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum25" name="serialNum25" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf25" name="manf25"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid25" name="psid25" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate25" name="acqDate25" size="10px" type="text" /></center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<br />
+<button id="displayButton" onclick="showAllRows()" type="button">Add More Rows</button>
+
+<div id="showRows" style="display:none;">&nbsp;
+<table class="tg" style="undefined;table-layout: fixed; width: 100%">
+
+	<tbody>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">26</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description26" name="description26"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag26" name="assetTag26" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum26" name="serialNum26" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf26" name="manf26"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid26" name="psid26" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate26" name="acqDate26" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">27</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description27" name="description27"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag27" name="assetTag27" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum27" name="serialNum27" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf27" name="manf27"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid27" name="psid27" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate27" name="acqDate27" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">28</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description28" name="description28"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag28" name="assetTag28" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum28" name="serialNum28" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf28" name="manf28"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid28" name="psid28" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate28" name="acqDate28" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">29</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description29" name="description29"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag29" name="assetTag29" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum29" name="serialNum29" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf29" name="manf29"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid29" name="psid29" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate29" name="acqDate29" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">30</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description30" name="description30"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag30" name="assetTag30" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum30" name="serialNum30" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf30" name="manf30"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid30" name="psid30" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate30" name="acqDate30" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">31</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description31" name="description31"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag31" name="assetTag31" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum31" name="serialNum31" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf31" name="manf31"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid31" name="psid31" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate31" name="acqDate31" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">32</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description32" name="description32"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag32" name="assetTag32" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum32" name="serialNum32" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf32" name="manf32"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid32" name="psid32" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate32" name="acqDate32" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">33</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description33" name="description33"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag33" name="assetTag33" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum33" name="serialNum33" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf33" name="manf33"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid33" name="psid33" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate33" name="acqDate33" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">34</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description34" name="description34"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag34" name="assetTag34" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum34" name="serialNum34" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf34" name="manf34"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid34" name="psid34" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate34" name="acqDate34" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">35</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description35" name="description35"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag35" name="assetTag35" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum35" name="serialNum35" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf35" name="manf35"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid35" name="psid35" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate35" name="acqDate35" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">36</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description36" name="description36"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag36" name="assetTag36" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum36" name="serialNum36" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf36" name="manf36"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid36" name="psid36" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate36" name="acqDate36" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">37</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description37" name="description37"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag37" name="assetTag37" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum37" name="serialNum37" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf37" name="manf37"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid37" name="psid37" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate37" name="acqDate37" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">38</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description38" name="description38"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag38" name="assetTag38" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum38" name="serialNum38" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf38" name="manf38"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid38" name="psid38" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate38" name="acqDate38" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">39</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description39" name="description39"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag39" name="assetTag39" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum39" name="serialNum39" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf39" name="manf39"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid39" name="psid39" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate39" name="acqDate39" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">40</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description40" name="description40"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag40" name="assetTag40" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum40" name="serialNum40" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf40" name="manf40"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid40" name="psid40" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate40" name="acqDate40" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">41</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description41" name="description41"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag41" name="assetTag41" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum41" name="serialNum41" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf41" name="manf41"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid41" name="psid41" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate41" name="acqDate41" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">42</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description42" name="description42"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag42" name="assetTag42" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum42" name="serialNum42" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf42" name="manf42"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid42" name="psid42" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate42" name="acqDate42" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">43</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description43" name="description43"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag43" name="assetTag43" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum43" name="serialNum43" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf43" name="manf43"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid43" name="psid43" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate43" name="acqDate43" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">44</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description44" name="description44"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag44" name="assetTag44" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum44" name="serialNum44" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf44" name="manf44"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid44" name="psid44" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate44" name="acqDate44" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">45</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description45" name="description45"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag45" name="assetTag45" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum45" name="serialNum45" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf45" name="manf45"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid45" name="psid45" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate45" name="acqDate45" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">46</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description46" name="description46"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag46" name="assetTag46" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum46" name="serialNum46" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf46" name="manf46"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid46" name="psid46" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate46" name="acqDate46" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">47</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description47" name="description47"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag47" name="assetTag47" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum47" name="serialNum47" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf47" name="manf47"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid47" name="psid47" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate47" name="acqDate47" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">48</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description48" name="description48"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag48" name="assetTag48" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum48" name="serialNum48" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf48" name="manf48"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid48" name="psid48" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate48" name="acqDate48" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">49</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description49" name="description49"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag49" name="assetTag49" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum49" name="serialNum49" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf49" name="manf49"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid49" name="psid49" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate49" name="acqDate49" size="10px" type="text" /></center>
+			</td>
+		</tr>
+		<tr>
+			<td class="number" style="text-align: center; font-weight:bold">50</td>
+			<td class="tg-0lax-ad">
+			<center><select id="description50" name="description50"><option value=""></option><option value="SurfaceGo Tablet">SurfaceGo Tablet</option><option value="Think Pad 11e">Think Pad 11e</option><option value="HP Laptop">HP Laptop</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="assetTag50" name="assetTag50" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="serialNum50" name="serialNum50" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><select id="manf50" name="manf50"><option value=""></option><option value="Microsoft">Microsoft</option><option value="Lenovo">Lenovo</option><option value="HP">HP</option> </select></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="psid50" name="psid50" type="text" /></center>
+			</td>
+			<td class="tg-0lax">
+			<center><input id="acqDate50" name="acqDate50" size="10px" type="text" /></center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<!--Closing Div for hidding rows 26- 50 is above this line--></div>
+<br />
+<input onclick="myFunction()" type="button" value="Reset Form" />
+<input name="submit" type="submit" value="Submit" /></form>
+
+<footer>For additional support, please send an email to device_support@scsk12.org.</footer>
+</div>
+<!--Container Closing Div --></body>
+</html>

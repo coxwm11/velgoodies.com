@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<head><meta charset="utf-8">
+
+	<title>Device Asset Check-Off Form</title>
+	<link href="adf.css" rel="stylesheet" />
+	
+	<!--Bootstrap Components Below --><!-- Latest compiled and minified CSS -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+	
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+	
+	
+	<script>
+	    
+	    // This calculates the date
+
+function autoDate () {
+	var tDay = new Date();
+	var tMonth = tDay.getMonth()+1;
+	var tDate = tDay.getDate();
+	if ( tMonth < 10) tMonth = "0"+tMonth;
+	if ( tDate < 10) tDate = "0"+tDate;
+	document.getElementById("tDate").value = tMonth+"/"+tDate+"/"+tDay.getFullYear();
+ }
+
+
+// This loads the date automattically in the date field and loads the form id in the addLoadEvent
+
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+        
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
+}
+
+addLoadEvent(function() {
+  autoDate();
+  
+  
+  
+  
+}); 
+
+	</script>
+<body>
+ <div class="container-fluid">
+
+
+    
+   <br>
+   
+
+<br>
+<!--Device Check Form-->
+
+
+
+<form action="devicecheckform.php" id="deviceCheck" method="POST" name="deviceCheck" onsubmit="checkForm()"  required="">
+    
+    <div style = "border: 2px solid black; padding:10px;"> 
+     <h3 ><b>Device Check Completion</b></h3>
+     
+    
+    <div class="row">
+   
+   <div class="col-md-4 col-xs-4">
+    
+   Date Received: <input id="tDate" name="tDate" placeholder="mm/dd/yyyy" required="" type="text" readonly/></div>
+     
+        
+   <div class="col-md-4 col-xs-4">
+        
+       Submission ID: <input id="submissionId" name="submissionId" type="text" required=""  />
+        
+        
+        </div>
+        
+        
+        <div class ="col-md-4 col-xs-4">
+    
+   Status: <select id="checkDevice" name="checkDevice" required=""><option value=""></option><option value="Checked">Checked</option></select>
+</div>
+        
+        </div>
+        
+        <br>
+<input name="submit" type="submit" value="Submit Completed Devices"/>
+    
+    
+    </div> <!--End of styling div-->
+    </form>
+    
+    
+    
+    <br>
+
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+ 
+
+    
+   
